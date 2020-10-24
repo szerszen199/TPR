@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-public class MagazineState
+namespace Shop.DataTypes
 {
-    public Product product{ get; set; }
-    public int Amount { get; set; }
+    public class MagazineState
+    {
+        public Product product { get; set; }
+        public int Amount { get; set; }
 
-    public MagazineState()
-	{
-	}
+        public MagazineState()
+        {
+
+        }
+    }
 }

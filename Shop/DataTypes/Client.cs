@@ -1,11 +1,14 @@
 ﻿using System;
 
-public class Client
+namespace Shop.DataTypes
 {
-    public string FirstName { get; set; }
-    public string SurName { get; set; }
+    public class Client
+    {
+        public string FirstName { get; set; }
+        public string SurName { get; set; }
 
-    public Client()
-	{
-	}
+        public Client()
+        {
+        }
+    }
 }
