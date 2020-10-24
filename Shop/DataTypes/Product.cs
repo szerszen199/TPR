@@ -10,6 +10,7 @@ namespace Shop.DataTypes
 
         public Product()
         {
+
         }
     }
 }

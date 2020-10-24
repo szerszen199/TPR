@@ -14,11 +14,7 @@ namespace Shop.DataTypes
 
         public Bill()
         {
-        }
 
-        public static implicit operator Bill(List<Bill> v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
