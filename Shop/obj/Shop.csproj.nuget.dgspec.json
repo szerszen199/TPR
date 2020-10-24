@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\Shop.csproj": {}
+    "C:\\Users\\szers\\source\\repos\\TPR\\Shop\\Shop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\Shop.csproj": {
+    "C:\\Users\\szers\\source\\repos\\TPR\\Shop\\Shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\Shop.csproj",
+        "projectUniqueName": "C:\\Users\\szers\\source\\repos\\TPR\\Shop\\Shop.csproj",
         "projectName": "Shop",
-        "projectPath": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\Shop.csproj",
+        "projectPath": "C:\\Users\\szers\\source\\repos\\TPR\\Shop\\Shop.csproj",
         "packagesPath": "C:\\Users\\szers\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\obj\\",
+        "outputPath": "C:\\Users\\szers\\source\\repos\\TPR\\Shop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\szers\\AppData\\Roaming\\NuGet\\NuGet.Config",

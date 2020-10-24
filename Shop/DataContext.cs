@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using Shop.Datatypes;
+using Shop.DataTypes;
 
 namespace Shop
 {
 	public class DataContext
 	{
-		Bill bills = new List<Bill>();
-		Clitent clients = new List<Client>();
-		MagazineState magazineStates = new List<MagazineState>();
-		Product products = new List<Product>();
+		List<Bill> bills= new List<Bill>();
+		List<Client> clients = new List<Client>();
+		List<MagazineState> magazineStates = new List<MagazineState>();
+		List<Product> products = new List<Product>();
 
 		public DataContext()
 		{
