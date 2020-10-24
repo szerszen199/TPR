@@ -7,10 +7,10 @@ namespace Shop.DataTypes
     {
         public double Cost { get; set; }
         public string ProductName { get; set; }
-
-        public Product()
+        public Product(double cost, string productName)
         {
-
+            Cost = cost;
+            ProductName = productName;
         }
     }
 }

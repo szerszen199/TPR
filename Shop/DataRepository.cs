@@ -7,17 +7,17 @@ namespace Shop
 	{
 		public DataContext dataContext = new DataContext();
 
-		public void AddProduct()
+		public void AddProduct(double Cost, string ProductName)
         {
-			Product product = new Product(); 
+			Product product = new Product(Cost, ProductName); 
 			dataContext.products.Add(product);
 		}
 
-		public Product GetProduct(Product product)
+		public Product GetProduct(int n)
 		{
 			for(int i=0;i<dataContext.products.Count;i++)
             {
-				if (product == dataContext.products[i])
+				if (n == i)
                 {
 					return dataContext.products[i];
                 }
@@ -25,7 +25,7 @@ namespace Shop
 			return null;
 		}
 
-		public void UpdateProduct(Product product,double cost,string productName)
+		public void UpdateProduct(Product product, double cost, string productName)
 		{
 			product.Cost = cost;
 			product.ProductName = productName;
