@@ -5737,11 +5737,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\szers\\source\\Repos\\TPR\\Shop\\UnitTest\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\UnitTest\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\szers\\source\\Repos\\TPR\\Shop\\UnitTest\\UnitTests.csproj",
+      "projectPath": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\UnitTest\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\szers\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\szers\\source\\Repos\\TPR\\Shop\\UnitTest\\obj\\",
+      "outputPath": "C:\\Users\\szers\\Source\\Repos\\TPR\\Shop\\UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\szers\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5757,8 +5757,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\szers\\source\\Repos\\TPR\\ShopProject.csproj": {
-              "projectPath": "C:\\Users\\szers\\source\\Repos\\TPR\\ShopProject.csproj"
+            "C:\\Users\\szers\\Source\\Repos\\TPR\\ShopProject.csproj": {
+              "projectPath": "C:\\Users\\szers\\Source\\Repos\\TPR\\ShopProject.csproj"
             }
           }
         }

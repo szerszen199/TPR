@@ -18,7 +18,7 @@ namespace DataTests
             Assert.AreEqual(10.98, testProduct.Cost);
             Assert.AreEqual("table", testProduct.ProductName);
             dataRepository.UpdateProduct(dataRepository.GetProduct(0), 15.99, "Wooden table");
-            Assert.AreEqual(15.99, testProduct.Cost);
+            Assert.AreNotEqual(15.00, testProduct.Cost);
             Assert.AreEqual("Wooden table", testProduct.ProductName);
             dataRepository.DeleteProduct(testProduct);
             Assert.AreEqual(null, dataRepository.GetProduct(0));
