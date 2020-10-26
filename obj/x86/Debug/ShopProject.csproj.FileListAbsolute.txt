@@ -1,6 +1,0 @@
-C:\Users\szers\source\Repos\TPR\bin\Debug\ConsoleApplication.exe
-C:\Users\szers\source\Repos\TPR\bin\Debug\ConsoleApplication.pdb
-C:\Users\szers\source\Repos\TPR\obj\x86\Debug\ShopProject.csprojAssemblyReference.cache
-C:\Users\szers\source\Repos\TPR\obj\x86\Debug\ShopProject.csproj.CoreCompileInputs.cache
-C:\Users\szers\source\Repos\TPR\obj\x86\Debug\ConsoleApplication.exe
-C:\Users\szers\source\Repos\TPR\obj\x86\Debug\ConsoleApplication.pdb
