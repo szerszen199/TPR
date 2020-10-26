@@ -9,7 +9,7 @@ namespace Shop
 		public List<Bill> bills = new List<Bill>();
 		public List<Client> clients = new List<Client>();
 		public List<MagazineState> magazineStates = new List<MagazineState>();
-		public List<Product> products = new List<Product>();
+		public Dictionary<Guid, Product> products = new Dictionary<Guid, Product>();
 		public DataContext()
 		{
 		}

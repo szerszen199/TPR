@@ -7,40 +7,26 @@ namespace Shop
 	{
 		public DataContext dataContext = new DataContext();
 
-		public void AddProduct(double Cost, string ProductName)
+		public void AddProduct(Guid guid,double Cost, string ProductName)
         {
-			Product product = new Product(Cost, ProductName); 
-			dataContext.products.Add(product);
+			Product product = new Product(guid, Cost, ProductName); 
+			dataContext.products.Add(guid, product);
 		}
 
-		public Product GetProduct(int n)
+		public Product GetProduct(Guid guid)
 		{
-			for(int i=0;i<dataContext.products.Count;i++)
-            {
-				if (n == i)
-                {
-					return dataContext.products[i];
-                }
-			}
-			return null;
+			return dataContext.products[guid];
 		}
 
-		public void UpdateProduct(Product product, double cost, string productName)
+		public void UpdateProduct(Guid guid, double cost, string productName)
 		{
-			product.Cost = cost;
-			product.ProductName = productName;
-			
+			dataContext.products[guid].Cost = cost;
+			dataContext.products[guid].ProductName = productName;
 		}
 
-		public void DeleteProduct(Product product)
+		public void DeleteProduct(Guid guid)
         {
-			for (int i = 0; i < dataContext.products.Count; i++)
-			{
-				if (product == dataContext.products[i])
-				{
-					dataContext.products.RemoveAt(i);
-				}
-			}
+			dataContext.products.Remove(guid);
 		}
 
 		public void AddClient(string firstName, string surname)

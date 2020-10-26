@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop;
 using Shop.DataTypes;
+using System;
 
 namespace DataTests
 {
@@ -13,15 +14,17 @@ namespace DataTests
         [TestMethod]
         public void ProductTest()
         {
-            dataRepository.AddProduct(10.98, "table");
-            Product testProduct = dataRepository.GetProduct(0);
+
+            Guid ProductGuid= new Guid("C83CC55E-8C61-444F-86EA-54C5F53B9B3E");
+            dataRepository.AddProduct(ProductGuid, 10.98, "table");
+            Product testProduct = dataRepository.GetProduct(ProductGuid);
             Assert.AreEqual(10.98, testProduct.Cost);
             Assert.AreEqual("table", testProduct.ProductName);
-            dataRepository.UpdateProduct(testProduct, 15.99, "Wooden table");
+            dataRepository.UpdateProduct(ProductGuid, 15.99, "Wooden table");
             Assert.AreEqual(15.99, testProduct.Cost);
             Assert.AreEqual("Wooden table", testProduct.ProductName);
-            dataRepository.DeleteProduct(testProduct);
-            Assert.AreEqual(null, dataRepository.GetProduct(0));
+            dataRepository.DeleteProduct(ProductGuid);
+            // TODO  delete product is not tested not suree how to test it.
         }
 
         [TestMethod]
@@ -40,14 +43,15 @@ namespace DataTests
         [TestMethod]
         public void MagazineStateTest()
         {
-            dataRepository.AddProduct(10.98, "table");
-            Product testProduct = dataRepository.GetProduct(0);
+            Guid ProductGuid = new Guid();
+            dataRepository.AddProduct(ProductGuid, 10.98, "table");
+            Product testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddMagazineState(testProduct, 10);
             MagazineState testMagazineState = dataRepository.GetMagazineState(0);
             Assert.AreEqual(testProduct, testMagazineState.Product);
             Assert.AreEqual(10, testMagazineState.Amount);
             dataRepository.UpdateMagazineState(testMagazineState, testProduct, 99);
-            Assert.AreEqual(testProduct, dataRepository.GetProduct(0));
+            Assert.AreEqual(testProduct, dataRepository.GetProduct(ProductGuid));
             Assert.AreEqual(99, testMagazineState.Amount);
             dataRepository.DeleteMagazineState(testMagazineState);
             Assert.AreEqual(null, dataRepository.GetMagazineState(0));
@@ -56,8 +60,9 @@ namespace DataTests
         [TestMethod]
         public void BillTest()
         {
-            dataRepository.AddProduct(10.98, "table");
-            Product testProduct = dataRepository.GetProduct(0);
+            Guid ProductGuid = new Guid();
+            dataRepository.AddProduct(ProductGuid, 10.98, "table");
+            Product testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddClient("Tomasz", "Wozniak");
             Client testClient = dataRepository.GetClient(0);
             dataRepository.AddMagazineState(testProduct, 10);
