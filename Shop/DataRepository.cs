@@ -43,17 +43,17 @@ namespace Shop
 			}
 		}
 
-		public void AddClient()
+		public void AddClient(string firstName, string surname)
 		{
-			Client client = new Client();
+			Client client = new Client(firstName, surname);
 			dataContext.clients.Add(client);
 		}
 
-		public Client GetClient(Client client)
+		public Client GetClient(int n)
 		{
 			for (int i = 0; i < dataContext.clients.Count; i++)
 			{
-				if (client == dataContext.clients[i])
+				if (n == i)
 				{
 					return dataContext.clients[i];
 				}
@@ -79,17 +79,17 @@ namespace Shop
 			}
 		}
 
-		public void AddMagazineState()
+		public void AddMagazineState(Product product, int amount)
 		{
-			MagazineState magazineState = new MagazineState();
+			MagazineState magazineState = new MagazineState(product, amount);
 			dataContext.magazineStates.Add(magazineState);
 		}
 
-		public MagazineState GetMagazineState(MagazineState magazineState)
+		public MagazineState GetMagazineState(int n)
 		{
 			for (int i = 0; i < dataContext.magazineStates.Count; i++)
 			{
-				if (magazineState == dataContext.magazineStates[i])
+				if (n == i)
 				{
 					return dataContext.magazineStates[i];
 				}
@@ -99,7 +99,7 @@ namespace Shop
 
 		public void UpdateMagazineState(MagazineState magazineState, Product product, int amount)
 		{
-			magazineState.product = product;
+			magazineState.Product = product;
 			magazineState.Amount = amount;
 
 		}
@@ -115,17 +115,17 @@ namespace Shop
 			}
 		}
 
-		public void AddBill()
+		public void AddBill(int amountBought, Client client, MagazineState magazineState, Product product)
 		{
-			Bill bill = new Bill();
+			Bill bill = new Bill(amountBought, client, magazineState, product);
 			dataContext.bills.Add(bill);
 		}
 
-		public Bill GetBill(Bill bill)
+		public Bill GetBill(int n)
 		{
 			for (int i = 0; i < dataContext.bills.Count; i++)
 			{
-				if (bill == dataContext.bills[i])
+				if (n == i)
 				{
 					return dataContext.bills[i];
 				}
@@ -135,10 +135,10 @@ namespace Shop
 
 		public void UpdateBill(Bill bill, int amountBought, Client client, MagazineState magazineState, Product product)
 		{
-			bill.amountBought = amountBought;
-			bill.client = client;
-			bill.magazineState = magazineState;
-			bill.product = product;
+			bill.AmountBought = amountBought;
+			bill.Client = client;
+			bill.MagazineState = magazineState;
+			bill.Product = product;
 		}
 
 		public void DeleteBill(Bill bill)

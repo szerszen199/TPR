@@ -6,12 +6,13 @@ namespace Shop.DataTypes
 {
     public class MagazineState
     {
-        public Product product { get; set; }
+        public Product Product { get; set; }
         public int Amount { get; set; }
 
-        public MagazineState()
+        public MagazineState(Product product ,int amount)
         {
-
+            Product = product;
+            Amount = amount;
         }
     }
 }

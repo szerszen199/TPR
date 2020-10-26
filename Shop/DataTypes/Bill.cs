@@ -7,13 +7,17 @@ namespace Shop.DataTypes
 {
     public class Bill
     {
-        public int amountBought { get; set; }
-        public Client client { get; set; }
-        public MagazineState magazineState { get; set; }
-        public Product product { get; set; }
+        public int AmountBought { get; set; }
+        public Client Client { get; set; }
+        public MagazineState MagazineState { get; set; }
+        public Product Product { get; set; }
 
-        public Bill()
+        public Bill(int amountBought, Client client, MagazineState magazineState, Product product)
         {
+            AmountBought = amountBought;
+            Client = client;
+            MagazineState = magazineState;
+            Product = product;
 
         }
     }

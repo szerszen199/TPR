@@ -7,8 +7,10 @@ namespace Shop.DataTypes
         public string FirstName { get; set; }
         public string SurName { get; set; }
 
-        public Client()
+        public Client(string firstName, string surname)
         {
+            FirstName = firstName;
+            SurName = surname;
         }
     }
 }
