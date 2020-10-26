@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Shop.DataTypes;
 
 namespace Shop
@@ -8,7 +9,7 @@ namespace Shop
 	{
 		public List<Bill> bills = new List<Bill>();
 		public List<Client> clients = new List<Client>();
-		public List<MagazineState> magazineStates = new List<MagazineState>();
+		public ObservableCollection<MagazineState> magazineStates = new ObservableCollection<MagazineState>();
 		public Dictionary<Guid, Product> products = new Dictionary<Guid, Product>();
 		public DataContext()
 		{

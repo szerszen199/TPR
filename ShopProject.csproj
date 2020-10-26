@@ -76,6 +76,7 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\DataService.cs" />
     <Compile Include="Shop\DataContext.cs" />
     <Compile Include="Shop\DataRepository.cs" />
     <Compile Include="Shop\DataTypes\Bill.cs" />

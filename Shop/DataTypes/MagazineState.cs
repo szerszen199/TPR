@@ -6,6 +6,7 @@ namespace Shop.DataTypes
 {
     public class MagazineState
     {
+        public Guid Guid { get; private set; }
         public Product Product { get; set; }
         public int Amount { get; set; }
 
@@ -13,6 +14,7 @@ namespace Shop.DataTypes
         {
             Product = product;
             Amount = amount;
+            Guid = product.Guid;
         }
     }
 }
