@@ -43,7 +43,7 @@ namespace DataTests
         [TestMethod]
         public void MagazineStateTest()
         {
-            Guid ProductGuid = new Guid();
+            Guid ProductGuid = new Guid("C83CC55E-8C61-444F-86EA-54C5F53B9B3E");
             dataRepository.AddProduct(ProductGuid, 10.98, "table");
             Product testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddMagazineState(testProduct, 10);

@@ -6,9 +6,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace ShopProject.Shop
+namespace Shop
 {
-    class DataService
+    public class DataService
     {
         private DataRepository dataRepository;
         public DataService(DataRepository dataRepository)
@@ -31,6 +31,17 @@ namespace ShopProject.Shop
             dataRepository.AddBill(amountBougt, dataRepository.GetClient(clientEnum),
                 dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetProduct(guid));
+            dataRepository.UpdateMagazineState(dataRepository.GetMagazineState(magazineStateEnum),
+                dataRepository.GetMagazineState(magazineStateEnum).Product,
+                dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBougt);
+        }
+        public void showAllProducts()
+        {
+            foreach (KeyValuePair<Guid, Product> product in dataRepository.GetAllProducts())
+            {
+                Console.WriteLine("Guid = {0}, Cost = {1}, ProductName = {2}", product.Value.Guid, product.Value.Cost, product.Value.ProductName);
+            }
+
         }
 
     }

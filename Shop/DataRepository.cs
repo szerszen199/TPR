@@ -18,6 +18,11 @@ namespace Shop
 			return dataContext.products[guid];
 		}
 
+		public Dictionary<Guid,Product> GetAllProducts()
+		{
+			return dataContext.products;
+		}
+
 		public void UpdateProduct(Guid guid, double cost, string productName)
 		{
 			dataContext.products[guid].Cost = cost;
@@ -45,6 +50,11 @@ namespace Shop
 				}
 			}
 			return null;
+		}
+
+		public List<Client> GetAllClients()
+		{
+			return dataContext.clients;
 		}
 
 		public void UpdateClient(Client client, string firstName, string surName)
