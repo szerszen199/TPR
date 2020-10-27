@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop;
+using Shop.DataTypes;
 using System;
 
 namespace DataTests
@@ -17,10 +18,13 @@ namespace DataTests
             Guid ProductGuid2 = new Guid("5B2594A4-9B72-44A2-8B1A-3339AD4F8E97");
             dataService.addNewProductToMagazine(ProductGuid1, 10.99, "pot", 20);
             dataService.addNewProductToMagazine(ProductGuid2, 123, "huge pot", 4);
-            
+            dataService.addNewClient("Grzegorz", "Muszynski");
+            dataService.showAllProducts();
+            dataService.buyProduct(0, ProductGuid1, 10, 0);
+
             //TODO test buing product by client and show bills;
 
-            dataService.showAllProducts();
+            dataService.showAllMagazineStates();
         }
     }
 }

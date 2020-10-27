@@ -1,6 +1,8 @@
 ﻿using System;
 using Shop.DataTypes;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace Shop
 {
 	public class DataRepository
@@ -91,6 +93,10 @@ namespace Shop
 				}
 			}
 			return null;
+		}
+		public ObservableCollection<MagazineState> GetAllMagazineStates()
+		{
+			return dataContext.magazineStates;
 		}
 
 		public void UpdateMagazineState(MagazineState magazineState, Product product, int amount)

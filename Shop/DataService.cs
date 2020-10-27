@@ -26,6 +26,11 @@ namespace Shop
             dataRepository.AddProduct(guid, cost, productName);
             dataRepository.AddMagazineState(dataRepository.GetProduct(guid), amountOnMagazine);
         }
+        public void addNewClient(string firstname, string surName)
+        {
+            dataRepository.AddClient(firstname, surName);
+        }
+
         public void buyProduct(int clientEnum, Guid guid, int amountBougt, int magazineStateEnum)
         {
             dataRepository.AddBill(amountBougt, dataRepository.GetClient(clientEnum),
@@ -37,12 +42,23 @@ namespace Shop
         }
         public void showAllProducts()
         {
+            Console.WriteLine($"Products: ");
             foreach (KeyValuePair<Guid, Product> product in dataRepository.GetAllProducts())
             {
                 Console.WriteLine("Guid = {0}, Cost = {1}, ProductName = {2}", product.Value.Guid, product.Value.Cost, product.Value.ProductName);
             }
 
         }
+        public void showAllMagazineStates()
+        {
+            Console.WriteLine($"Magazine States: ");
+            ObservableCollection<MagazineState> colection = dataRepository.GetAllMagazineStates();
 
+            for (int i = 0; i < colection.Count; i++)
+            {
+                Console.WriteLine($"{i}. Guid = {colection[i].Guid}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}");
+            }
+
+        }
     }
 }
