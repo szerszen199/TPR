@@ -60,5 +60,27 @@ namespace Shop
             }
 
         }
+        public void showAllBills()
+        {
+            Console.WriteLine($"Bills : ");
+            List<Bill> colection = dataRepository.GetAllBills();
+
+            for (int i = 0; i < colection.Count; i++)
+            {
+                Console.WriteLine($"{i}. Client = {colection[i].Client.FirstName} {colection[i].Client.SurName}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].AmountBought}, Paid = {colection[i].Paid}");
+            }
+
+        }
+        public void showAllClients()
+        {
+            Console.WriteLine($"Clients : ");
+            List<Client> colection = dataRepository.GetAllClients();
+
+            for (int i = 0; i < colection.Count; i++)
+            {
+                Console.WriteLine($"{i}. Client = {colection[i].FirstName} {colection[i].SurName}");
+            }
+
+        }
     }
 }

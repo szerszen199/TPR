@@ -11,6 +11,7 @@ namespace Shop.DataTypes
         public Client Client { get; set; }
         public MagazineState MagazineState { get; set; }
         public Product Product { get; set; }
+        public Double Paid  { get; set; }
 
         public Bill(int amountBought, Client client, MagazineState magazineState, Product product)
         {
@@ -18,7 +19,7 @@ namespace Shop.DataTypes
             Client = client;
             MagazineState = magazineState;
             Product = product;
-
+            Paid = amountBought * product.Cost;
         }
     }
 }

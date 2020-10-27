@@ -19,12 +19,12 @@ namespace DataTests
             dataService.addNewProductToMagazine(ProductGuid1, 10.99, "pot", 20);
             dataService.addNewProductToMagazine(ProductGuid2, 123, "huge pot", 4);
             dataService.addNewClient("Grzegorz", "Muszynski");
-            dataService.showAllProducts();
             dataService.buyProduct(0, ProductGuid1, 10, 0);
-
             //TODO test buing product by client and show bills;
-
+            dataService.showAllProducts();
             dataService.showAllMagazineStates();
+            dataService.showAllBills();
+            dataService.showAllClients();
         }
     }
 }

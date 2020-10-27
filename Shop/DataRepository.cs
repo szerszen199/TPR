@@ -134,7 +134,10 @@ namespace Shop
 			}
 			return null;
 		}
-
+		public List<Bill> GetAllBills()
+		{
+			return dataContext.bills;
+		}
 		public void UpdateBill(Bill bill, int amountBought, Client client, MagazineState magazineState, Product product)
 		{
 			bill.AmountBought = amountBought;
