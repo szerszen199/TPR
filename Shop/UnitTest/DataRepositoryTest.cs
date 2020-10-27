@@ -24,7 +24,7 @@ namespace DataTests
             Assert.AreEqual(15.99, testProduct.Cost);
             Assert.AreEqual("Wooden table", testProduct.ProductName);
             dataRepository.DeleteProduct(ProductGuid);
-            // TODO  delete product is not tested not suree how to test it.
+            // TODO  delete product is not tested not sure how to test it.
         }
 
         [TestMethod]
