@@ -119,11 +119,11 @@ namespace Shop
 
 		public void AddBill(int amountBought, Client client, MagazineState magazineState, Product product)
 		{
-			Bill bill = new Bill(amountBought, client, magazineState, product);
+			IBill bill = new Bill(amountBought, client, magazineState, product);
 			dataContext.bills.Add(bill);
 		}
 
-		public Bill GetBill(int n)
+		public IBill GetBill(int n)
 		{
 			for (int i = 0; i < dataContext.bills.Count; i++)
 			{
@@ -134,11 +134,11 @@ namespace Shop
 			}
 			return null;
 		}
-		public List<Bill> GetAllBills()
+		public List<IBill> GetAllBills()
 		{
 			return dataContext.bills;
 		}
-		public void UpdateBill(Bill bill, int amountBought, Client client, MagazineState magazineState, Product product)
+		public void UpdateBill(IBill bill, int amountBought, Client client, MagazineState magazineState, Product product)
 		{
 			bill.AmountBought = amountBought;
 			bill.Client = client;
@@ -146,7 +146,7 @@ namespace Shop
 			bill.Product = product;
 		}
 
-		public void DeleteBill(Bill bill)
+		public void DeleteBill(IBill bill)
 		{
 			for (int i = 0; i < dataContext.bills.Count; i++)
 			{
@@ -156,6 +156,5 @@ namespace Shop
 				}
 			}
 		}
-
 	}
 }

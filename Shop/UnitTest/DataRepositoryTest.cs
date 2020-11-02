@@ -3,6 +3,7 @@ using Shop;
 using Shop.DataTypes;
 using System;
 
+
 namespace DataTests
 {
     [TestClass]
@@ -68,7 +69,7 @@ namespace DataTests
             dataRepository.AddMagazineState(testProduct, 10);
             MagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddBill(5, testClient, testMagazineState, testProduct);
-            Bill testBill = dataRepository.GetBill(0);
+            Bill testBill = (Bill)dataRepository.GetBill(0);
             Assert.AreEqual(5, testBill.AmountBought);
             Assert.AreEqual(testClient, testBill.Client);
             Assert.AreEqual(testMagazineState, testBill.MagazineState);

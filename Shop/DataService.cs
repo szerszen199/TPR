@@ -33,6 +33,7 @@ namespace Shop
 
         public void buyProduct(int clientEnum, Guid guid, int amountBougt, int magazineStateEnum)
         {
+
             dataRepository.AddBill(amountBougt, dataRepository.GetClient(clientEnum),
                 dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetProduct(guid));
@@ -63,7 +64,7 @@ namespace Shop
         public void showAllBills()
         {
             Console.WriteLine($"Bills : ");
-            List<Bill> colection = dataRepository.GetAllBills();
+            List<IBill> colection = dataRepository.GetAllBills();
 
             for (int i = 0; i < colection.Count; i++)
             {
@@ -80,7 +81,10 @@ namespace Shop
             {
                 Console.WriteLine($"{i}. Client = {colection[i].FirstName} {colection[i].SurName}");
             }
-
         }
+/*        public void fillProgram()
+        {
+            dataRepository.bills.Add();
+        }*/
     }
 }

@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -76,11 +79,13 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\DataFiller\FillFromFile.cs" />
     <Compile Include="Shop\DataService.cs" />
     <Compile Include="Shop\DataContext.cs" />
     <Compile Include="Shop\DataRepository.cs" />
     <Compile Include="Shop\DataTypes\Bill.cs" />
     <Compile Include="Shop\DataTypes\Client.cs" />
+    <Compile Include="Shop\DataTypes\IBill.cs" />
     <Compile Include="Shop\DataTypes\MagazineState.cs" />
     <Compile Include="Shop\DataTypes\Product.cs" />
     <Compile Include="Shop\Program.cs" />
