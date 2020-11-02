@@ -79,6 +79,7 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\DataFiller\IDataFiller.cs" />
     <Compile Include="Shop\DataFiller\FillFromFile.cs" />
     <Compile Include="Shop\DataService.cs" />
     <Compile Include="Shop\DataContext.cs" />

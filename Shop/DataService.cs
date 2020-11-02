@@ -1,5 +1,6 @@
 ﻿using Shop;
 using Shop.DataTypes;
+using ShopProject.Shop.DataFiller;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,11 +11,18 @@ namespace Shop
 {
     public class DataService
     {
+        /*        private DataRepository dataRepository;
+                public DataService(DataRepository dataRepository)
+                {
+                    this.dataRepository = dataRepository;
+                }*/
+
         private DataRepository dataRepository;
-        public DataService(DataRepository dataRepository)
+        public DataService()
         {
-            this.dataRepository = dataRepository;
+            dataRepository = new DataRepository(new FillFromFile());
         }
+
 
         public void reStockt(int magazineStateEnum, int restockValue)
         {
@@ -82,9 +90,10 @@ namespace Shop
                 Console.WriteLine($"{i}. Client = {colection[i].FirstName} {colection[i].SurName}");
             }
         }
-/*        public void fillProgram()
+        public void fillData()
         {
-            dataRepository.bills.Add();
-        }*/
+            dataRepository.FillClients();
+            //dataRepository.FillProducts();
+        }
     }
 }

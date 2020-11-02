@@ -2,14 +2,27 @@
 using Shop.DataTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using ShopProject.Shop.DataFiller;
 
 namespace Shop
 {
 	public class DataRepository
 	{
-		public DataContext dataContext = new DataContext();
+		public DataContext dataContext;
+		public IDataFiller DataFiller;
 
-		public void AddProduct(Guid guid,double Cost, string ProductName)
+        public DataRepository(IDataFiller dataFiller)
+        {
+			dataContext = new DataContext();
+			DataFiller = dataFiller;
+		}
+
+        public DataRepository()
+        {
+            dataContext = new DataContext();
+        }
+
+        public void AddProduct(Guid guid,double Cost, string ProductName)
         {
 			Product product = new Product(guid, Cost, ProductName); 
 			dataContext.products.Add(guid, product);
@@ -155,6 +168,37 @@ namespace Shop
 					dataContext.bills.RemoveAt(i);
 				}
 			}
+		}
+
+		public void FillClients()
+		{
+			List<string> firstNameList = new List<string>();
+			List<string> sureNameList = new List<string>();
+
+			firstNameList = DataFiller.readElementFromFile("firstName");
+			sureNameList = DataFiller.readElementFromFile("surName");
+
+			for (int i = 0; i < firstNameList.Count; i++)
+			{
+				AddClient(firstNameList[i], sureNameList[i]);
+			}
+
+		}
+		public void FillProducts()
+		{
+			List<string> guidList = new List<string>();
+			List<string> costList = new List<string>();
+			List<string> productNameList = new List<string>();
+
+			guidList = DataFiller.readElementFromFile("guid");
+			costList = DataFiller.readElementFromFile("cost");
+			productNameList = DataFiller.readElementFromFile("productName");
+
+			for (int i = 0; i < guidList.Count; i++)
+			{
+				AddProduct(Guid.Parse(guidList[i]), int.Parse(costList[i]), productNameList[i]);
+			}
+
 		}
 	}
 }

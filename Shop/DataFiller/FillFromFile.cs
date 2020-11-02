@@ -7,16 +7,27 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Shop;
 using Shop.DataTypes;
 
 namespace ShopProject.Shop.DataFiller
 {
-    public class FillFromFile
+
+    public class FillFromFile : IDataFiller
     {
-        public List<string> readClientFromFile(string xmlElementName)
+/*        DataRepository dataRepository;
+        public FillFromFile(DataRepository dataRepository)
+        {
+            this.dataRepository = dataRepository;
+        }*/
+        public FillFromFile()
+        {
+        }
+
+        public List<string> readElementFromFile(string xmlElementName)
         {
             XDocument doc = XDocument.Load("C:\\Users\\szers\\Desktop\\dataset.xml");
-            List<string> lista = new List<string>(); ;
+            List<string> lista = new List<string>();
 
             var elements = doc.Descendants(xmlElementName);
 
@@ -26,5 +37,5 @@ namespace ShopProject.Shop.DataFiller
             }
             return lista;
         }
-	}
+    }
 }
