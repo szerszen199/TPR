@@ -95,6 +95,11 @@
     <Folder Include=".git\objects\info\" />
     <Folder Include=".git\refs\tags\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shop\DataFiller\dataset.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

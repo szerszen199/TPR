@@ -93,7 +93,7 @@ namespace Shop
         public void fillData()
         {
             dataRepository.FillClients();
-            //dataRepository.FillProducts();
+            dataRepository.FillProducts();
         }
     }
 }

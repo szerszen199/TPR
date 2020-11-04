@@ -26,7 +26,7 @@ namespace ShopProject.Shop.DataFiller
 
         public List<string> readElementFromFile(string xmlElementName)
         {
-            XDocument doc = XDocument.Load("C:\\Users\\szers\\Desktop\\dataset.xml");
+            XDocument doc = XDocument.Load(@"Shop\DataFiller\dataset.xml");
             List<string> lista = new List<string>();
 
             var elements = doc.Descendants(xmlElementName);

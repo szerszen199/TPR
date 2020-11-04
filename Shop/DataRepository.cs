@@ -196,7 +196,7 @@ namespace Shop
 
 			for (int i = 0; i < guidList.Count; i++)
 			{
-				AddProduct(Guid.Parse(guidList[i]), int.Parse(costList[i]), productNameList[i]);
+				AddProduct(Guid.Parse(guidList[i]), double.Parse(costList[i]), productNameList[i]);
 			}
 
 		}

@@ -10,7 +10,7 @@ namespace DataTests
     public class DataServiceTest
     {
 
-        DataRepository dataRepository = new DataRepository(new FillFromFile());
+        /*DataRepository dataRepository = new DataRepository(new FillFromFile());*/
 
         [TestMethod]
         public void MagazineService()
