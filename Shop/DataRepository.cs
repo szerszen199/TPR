@@ -3,6 +3,7 @@ using Shop.DataTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ShopProject.Shop.DataFiller;
+using System.Globalization;
 
 namespace Shop
 {
@@ -196,7 +197,7 @@ namespace Shop
 
 			for (int i = 0; i < guidList.Count; i++)
 			{
-				AddProduct(Guid.Parse(guidList[i]), double.Parse(costList[i]), productNameList[i]);
+				AddProduct(Guid.Parse(guidList[i]), double.Parse(costList[i], CultureInfo.InvariantCulture), productNameList[i]);
 			}
 
 		}
