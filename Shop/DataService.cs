@@ -72,7 +72,7 @@ namespace Shop
         public void showAllBills()
         {
             Console.WriteLine($"Bills : ");
-            List<IBill> colection = dataRepository.GetAllBills();
+            List<Bill> colection = dataRepository.GetAllBills();
 
             for (int i = 0; i < colection.Count; i++)
             {

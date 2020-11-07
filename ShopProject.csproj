@@ -86,7 +86,6 @@
     <Compile Include="Shop\DataRepository.cs" />
     <Compile Include="Shop\DataTypes\Bill.cs" />
     <Compile Include="Shop\DataTypes\Client.cs" />
-    <Compile Include="Shop\DataTypes\IBill.cs" />
     <Compile Include="Shop\DataTypes\MagazineState.cs" />
     <Compile Include="Shop\DataTypes\Product.cs" />
     <Compile Include="Shop\Program.cs" />
