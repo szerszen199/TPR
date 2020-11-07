@@ -85,6 +85,7 @@
     <Compile Include="Shop\DataContext.cs" />
     <Compile Include="Shop\DataRepository.cs" />
     <Compile Include="Shop\DataTypes\Bill.cs" />
+    <Compile Include="Shop\DataTypes\StockEvent.cs" />
     <Compile Include="Shop\DataTypes\Client.cs" />
     <Compile Include="Shop\DataTypes\MagazineState.cs" />
     <Compile Include="Shop\DataTypes\Product.cs" />
