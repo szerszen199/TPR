@@ -18,10 +18,12 @@ namespace Shop
         }
 
 
-        public void reStockt(int magazineStateEnum, int restockValue)
+        public void restockProduct(int magazineStateEnum, Guid guid, int amount)
         {
+            dataRepository.AddRestock(amount, dataRepository.GetMagazineState(magazineStateEnum),
+                dataRepository.GetProduct(guid));
             dataRepository.UpdateMagazineState(dataRepository.GetMagazineState(magazineStateEnum),
-                dataRepository.GetMagazineState(magazineStateEnum).Product, restockValue);
+                dataRepository.GetMagazineState(magazineStateEnum).Product, amount);
         }
         public void addNewProductToMagazine(Guid guid, double cost, string productName, int amountOnMagazine)
         {
@@ -33,15 +35,15 @@ namespace Shop
             dataRepository.AddClient(firstname, surName);
         }
 
-        public void buyProduct(int clientEnum, Guid guid, int amountBougt, int magazineStateEnum)
+        public void buyProduct(int clientEnum, Guid guid, int amountBought, int magazineStateEnum)
         {
 
-            dataRepository.AddBill(amountBougt, dataRepository.GetClient(clientEnum),
+            dataRepository.AddBill(amountBought, dataRepository.GetClient(clientEnum),
                 dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetProduct(guid));
             dataRepository.UpdateMagazineState(dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetMagazineState(magazineStateEnum).Product,
-                dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBougt);
+                dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBought);
         }
         public void showAllProducts()
         {
