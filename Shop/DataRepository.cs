@@ -2,7 +2,7 @@
 using Shop.DataTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using ShopProject.Shop.DataFiller;
+using Shop.DataFiller;
 using System.Globalization;
 
 namespace Shop

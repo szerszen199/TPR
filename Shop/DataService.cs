@@ -1,6 +1,6 @@
 ﻿using Shop;
 using Shop.DataTypes;
-using ShopProject.Shop.DataFiller;
+using Shop.DataFiller;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
