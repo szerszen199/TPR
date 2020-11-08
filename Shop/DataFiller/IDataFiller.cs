@@ -5,6 +5,6 @@ namespace Shop.DataFiller
 {
     public interface IDataFiller
     {
-        List<string> readElementFromFile(string xmlElementName);
+        void Fill(DataContext context);
     }
 }

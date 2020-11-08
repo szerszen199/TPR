@@ -17,8 +17,7 @@ namespace Shop
         void DeleteMagazineState(MagazineState magazineState);
         void DeleteProduct(Guid guid);
         void DeleteRestock(Restock restock);
-        void FillClients();
-        void FillProducts();
+        void Fill();
         ObservableCollection<Bill> GetAllBills();
         List<Client> GetAllClients();
         ObservableCollection<MagazineState> GetAllMagazineStates();

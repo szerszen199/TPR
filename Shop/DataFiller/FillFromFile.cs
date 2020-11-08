@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,11 @@ namespace Shop.DataFiller
     public class FillFromFile : IDataFiller
     {
 
-        public FillFromFile()
+
+        public void Fill(DataContext context)
         {
+            FillClients(context);
+            FillProducts(context);
         }
 
         public List<string> readElementFromFile(string xmlElementName)
@@ -33,5 +37,37 @@ namespace Shop.DataFiller
             }
             return lista;
         }
+
+        public void FillClients(DataContext context)
+        {
+            List<string> firstNameList = new List<string>();
+            List<string> sureNameList = new List<string>();
+
+            firstNameList = readElementFromFile("firstName");
+            sureNameList = readElementFromFile("surName");
+
+            for (int i = 0; i < firstNameList.Count; i++)
+            {
+                context.clients.Add(new Client(firstNameList[i], sureNameList[i]));
+            }
+        }
+        public void FillProducts(DataContext context)
+        {
+            List<string> guidList = new List<string>();
+            List<string> costList = new List<string>();
+            List<string> productNameList = new List<string>();
+
+            guidList = readElementFromFile("guid");
+            costList = readElementFromFile("cost");
+            productNameList = readElementFromFile("productName");
+
+            for (int i = 0; i < guidList.Count; i++)
+            {
+                context.products.Add(Guid.Parse(guidList[i]), new Product(Guid.Parse(guidList[i]), double.Parse(costList[i], CultureInfo.InvariantCulture), productNameList[i]));
+            }
+
+        }
+
+
     }
 }

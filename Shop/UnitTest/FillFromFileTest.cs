@@ -45,8 +45,7 @@ namespace UnitTests
             costList = fillFromFile.readElementFromFile("cost");
             productNameList = fillFromFile.readElementFromFile("productName");
 
-            dataRepository.FillClients();
-            dataRepository.FillProducts();
+            dataRepository.Fill();
             Assert.AreEqual(firstNames[0], dataRepository.GetClient(0).FirstName);
             Assert.AreEqual(surNames[0], dataRepository.GetClient(0).SurName);
             Assert.AreEqual(Guid.Parse(guidList[0]), dataRepository.GetProduct(Guid.Parse(guidList[0])).Guid);

@@ -210,35 +210,10 @@ namespace Shop
             }
         }
 
-        public void FillClients()
+        public void Fill()
         {
-            List<string> firstNameList = new List<string>();
-            List<string> sureNameList = new List<string>();
-
-            firstNameList = DataFiller.readElementFromFile("firstName");
-            sureNameList = DataFiller.readElementFromFile("surName");
-
-            for (int i = 0; i < firstNameList.Count; i++)
-            {
-                AddClient(firstNameList[i], sureNameList[i]);
-            }
-
+            DataFiller.Fill(dataContext);
         }
-        public void FillProducts()
-        {
-            List<string> guidList = new List<string>();
-            List<string> costList = new List<string>();
-            List<string> productNameList = new List<string>();
 
-            guidList = DataFiller.readElementFromFile("guid");
-            costList = DataFiller.readElementFromFile("cost");
-            productNameList = DataFiller.readElementFromFile("productName");
-
-            for (int i = 0; i < guidList.Count; i++)
-            {
-                AddProduct(Guid.Parse(guidList[i]), double.Parse(costList[i], CultureInfo.InvariantCulture), productNameList[i]);
-            }
-
-        }
     }
 }
