@@ -69,7 +69,7 @@ namespace Shop
         public void showAllBills()
         {
             Console.WriteLine($"Bills : ");
-            List<Bill> colection = dataRepository.GetAllBills();
+            ObservableCollection<Bill> colection = dataRepository.GetAllBills();
 
             for (int i = 0; i < colection.Count; i++)
             {
@@ -81,7 +81,7 @@ namespace Shop
         public void showAllRestocks()
         {
             Console.WriteLine($"Restocks : ");
-            List<Restock> colection = dataRepository.GetAllRestocks();
+            ObservableCollection<Restock> colection = dataRepository.GetAllRestocks();
 
             for (int i = 0; i < colection.Count; i++)
             {

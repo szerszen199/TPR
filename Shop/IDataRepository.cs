@@ -19,11 +19,11 @@ namespace Shop
         void DeleteRestock(Restock restock);
         void FillClients();
         void FillProducts();
-        List<Bill> GetAllBills();
+        ObservableCollection<Bill> GetAllBills();
         List<Client> GetAllClients();
         ObservableCollection<MagazineState> GetAllMagazineStates();
         Dictionary<Guid, Product> GetAllProducts();
-        List<Restock> GetAllRestocks();
+        ObservableCollection<Restock> GetAllRestocks();
         Bill GetBill(int n);
         Client GetClient(int n);
         MagazineState GetMagazineState(int n);

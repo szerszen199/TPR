@@ -148,7 +148,7 @@ namespace Shop
             }
             return null;
         }
-        public List<Bill> GetAllBills()
+        public ObservableCollection<Bill> GetAllBills()
         {
             return dataContext.bills;
         }
@@ -188,7 +188,7 @@ namespace Shop
             }
             return null;
         }
-        public List<Restock> GetAllRestocks()
+        public ObservableCollection<Restock> GetAllRestocks()
         {
             return dataContext.restocks;
         }
