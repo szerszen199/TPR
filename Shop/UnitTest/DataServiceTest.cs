@@ -10,12 +10,9 @@ namespace DataTests
     public class DataServiceTest
     {
 
-        /*DataRepository dataRepository = new DataRepository(new FillFromFile());*/
-
         [TestMethod]
         public void MagazineService()
         {
-            /*DataService dataService = new DataService(dataRepository);*/
             DataService dataService = new DataService();
             dataService.fillData();
             Guid ProductGuid1 = new Guid("22B08781-191D-4C7F-ABDA-08926898412A");
