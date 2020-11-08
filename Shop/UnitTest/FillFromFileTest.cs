@@ -11,7 +11,7 @@ namespace UnitTests
     [TestClass]
     public class FillFromFileTest
     {
-        public DataRepository dataRepository = new DataRepository(new FillFromFile());
+        public IDataRepository dataRepository = new DataRepository(new FillFromFile());
 
         [TestMethod]
         public void fillFromFile()

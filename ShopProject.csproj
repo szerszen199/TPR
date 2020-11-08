@@ -90,6 +90,7 @@
     <Compile Include="Shop\DataTypes\Client.cs" />
     <Compile Include="Shop\DataTypes\MagazineState.cs" />
     <Compile Include="Shop\DataTypes\Product.cs" />
+    <Compile Include="Shop\IDataRepository.cs" />
     <Compile Include="Shop\Program.cs" />
   </ItemGroup>
   <ItemGroup>

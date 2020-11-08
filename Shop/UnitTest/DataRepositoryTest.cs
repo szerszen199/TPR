@@ -11,7 +11,7 @@ namespace DataTests
     public class DataRepositoryTest
     {
 
-        public DataRepository dataRepository = new DataRepository();
+        public IDataRepository dataRepository = new DataRepository();
 
         [TestMethod]
         public void ProductTest()

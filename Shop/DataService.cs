@@ -11,7 +11,7 @@ namespace Shop
 {
     public class DataService
     {
-        private DataRepository dataRepository;
+        private IDataRepository dataRepository;
         public DataService()
         {
             dataRepository = new DataRepository(new FillFromFile());
