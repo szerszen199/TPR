@@ -81,5 +81,25 @@ namespace DataTests
             dataRepository.DeleteBill(testBill);
             Assert.AreEqual(null, dataRepository.GetBill(0));
         }
+
+        [TestMethod]
+        public void RestockTest()
+        {
+            Guid ProductGuid = new Guid();
+            dataRepository.AddProduct(ProductGuid, 10.98, "table");
+            Product testProduct = dataRepository.GetProduct(ProductGuid);
+            dataRepository.AddMagazineState(testProduct, 10);
+            MagazineState testMagazineState = dataRepository.GetMagazineState(0);
+            dataRepository.AddRestock(5, testMagazineState, testProduct);
+            Restock testRestock = (Restock)dataRepository.GetRestock(0);
+            Assert.AreEqual(5, testRestock.Amount);
+            Assert.AreEqual(testMagazineState, testRestock.MagazineState);
+            Assert.AreEqual(testProduct, testRestock.Product);
+            dataRepository.UpdateRestock(testRestock, 10, testMagazineState, testProduct);
+            Assert.AreEqual(10, testRestock.Amount);
+
+            dataRepository.DeleteRestock(testRestock);
+            Assert.AreEqual(null, dataRepository.GetRestock(0));
+        }
     }
 }
