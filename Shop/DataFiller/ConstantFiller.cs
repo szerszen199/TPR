@@ -6,7 +6,7 @@ using Shop.DataTypes;
 
 namespace Shop.DataFiller
 {
-    class ConstantFiller : IDataFiller
+    public class ConstantFiller : IDataFiller
     {
         public void Fill(DataContext context)
         {
