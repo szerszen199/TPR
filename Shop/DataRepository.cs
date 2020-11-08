@@ -171,6 +171,45 @@ namespace Shop
 			}
 		}
 
+		public void AddRestock(int amount, MagazineState magazineState, Product product)
+		{
+			Restock restock = new Restock(amount, magazineState, product);
+			dataContext.restocks.Add(restock);
+		}
+
+		public Restock GetRestock(int n)
+		{
+			for (int i = 0; i < dataContext.restocks.Count; i++)
+			{
+				if (n == i)
+				{
+					return dataContext.restocks[i];
+				}
+			}
+			return null;
+		}
+		public List<Restock> GetAllRestocks()
+		{
+			return dataContext.restocks;
+		}
+		public void UpdateRestock(Restock restock, int amount, MagazineState magazineState, Product product)
+		{
+			restock.Amount = amount;
+			restock.MagazineState = magazineState;
+			restock.Product = product;
+		}
+
+		public void DeleteRestock(Restock restock)
+		{
+			for (int i = 0; i < dataContext.restocks.Count; i++)
+			{
+				if (restock == dataContext.restocks[i])
+				{
+					dataContext.restocks.RemoveAt(i);
+				}
+			}
+		}
+
 		public void FillClients()
 		{
 			List<string> firstNameList = new List<string>();
