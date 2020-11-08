@@ -23,7 +23,8 @@ namespace Shop
             dataRepository.AddRestock(amount, dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetProduct(guid));
             dataRepository.UpdateMagazineState(dataRepository.GetMagazineState(magazineStateEnum),
-                dataRepository.GetMagazineState(magazineStateEnum).Product, amount);
+                dataRepository.GetMagazineState(magazineStateEnum).Product,
+                dataRepository.GetMagazineState(magazineStateEnum).Amount + amount);
         }
         public void addNewProductToMagazine(Guid guid, double cost, string productName, int amountOnMagazine)
         {
@@ -73,6 +74,18 @@ namespace Shop
             for (int i = 0; i < colection.Count; i++)
             {
                 Console.WriteLine($"{i}. Client = {colection[i].Client.FirstName} {colection[i].Client.SurName}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}, Paid = {colection[i].Price}");
+            }
+
+        }
+
+        public void showAllRestocks()
+        {
+            Console.WriteLine($"Restocks : ");
+            List<Restock> colection = dataRepository.GetAllRestocks();
+
+            for (int i = 0; i < colection.Count; i++)
+            {
+                Console.WriteLine($"{i}. Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}, Paid = {colection[i].Price}");
             }
 
         }
