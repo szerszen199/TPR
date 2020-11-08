@@ -11,7 +11,6 @@ namespace UnitTests
     [TestClass]
     public class FillFromFileTest
     {
-        public IDataRepository dataRepository = new DataRepository(new FillFromFile());
 
         [TestMethod]
         public void fillFromFile()
@@ -32,9 +31,9 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void fillTest()
+        public void fillXMLTest()
         {
-
+            IDataRepository dataRepository = new DataRepository(new FillFromFile());
             FillFromFile fillFromFile = new FillFromFile();
             List<string> firstNames, surNames, guidList, costList, productNameList = new List<string>();
 
@@ -51,6 +50,23 @@ namespace UnitTests
             Assert.AreEqual(Guid.Parse(guidList[0]), dataRepository.GetProduct(Guid.Parse(guidList[0])).Guid);
             Assert.AreEqual(double.Parse(costList[0], CultureInfo.InvariantCulture), dataRepository.GetProduct(Guid.Parse(guidList[0])).Cost);
             Assert.AreEqual(productNameList[0], dataRepository.GetProduct(Guid.Parse(guidList[0])).ProductName);
+
+        }
+
+        
+
+        [TestMethod]
+        public void fillConstantTest()
+        {
+            IDataRepository dataRepository = new DataRepository(new ConstantFiller());
+            dataRepository.Fill();
+
+            Guid Guid = Guid.Parse("3EA13DB8-DCB3-4ED9-805C-B88AA99AB5C5");
+
+            Assert.AreEqual("Grzegorz", dataRepository.GetClient(0).FirstName);
+            Assert.AreEqual("Table", dataRepository.GetProduct(Guid).ProductName);
+            Assert.AreEqual(10, dataRepository.GetMagazineState(0).Amount);
+            Assert.AreEqual(4, dataRepository.GetBill(0).Amount);
 
         }
     }
