@@ -10,16 +10,12 @@ using System.Xml.Serialization;
 using Shop;
 using Shop.DataTypes;
 
-namespace ShopProject.Shop.DataFiller
+namespace Shop.DataFiller
 {
 
     public class FillFromFile : IDataFiller
     {
-/*        DataRepository dataRepository;
-        public FillFromFile(DataRepository dataRepository)
-        {
-            this.dataRepository = dataRepository;
-        }*/
+
         public FillFromFile()
         {
         }

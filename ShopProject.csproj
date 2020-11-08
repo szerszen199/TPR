@@ -30,7 +30,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>ShopProject</RootNamespace>
+    <RootNamespace>Shop</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

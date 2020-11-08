@@ -1,7 +1,7 @@
 ﻿using Shop;
 using System.Collections.Generic;
 
-namespace ShopProject.Shop.DataFiller
+namespace Shop.DataFiller
 {
     public interface IDataFiller
     {
