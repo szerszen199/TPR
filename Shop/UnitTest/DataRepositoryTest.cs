@@ -3,7 +3,7 @@ using Shop;
 using Shop.DataTypes;
 using Shop.DataFiller;
 using System;
-
+using System.Collections.Generic;
 
 namespace DataTests
 {
@@ -26,7 +26,7 @@ namespace DataTests
             Assert.AreEqual(15.99, testProduct.Cost);
             Assert.AreEqual("Wooden table", testProduct.ProductName);
             dataRepository.DeleteProduct(ProductGuid);
-            // TODO  delete product is not tested not sure how to test it.
+            Assert.ThrowsException<KeyNotFoundException>(() => dataRepository.GetProduct(ProductGuid));
         }
 
         [TestMethod]
