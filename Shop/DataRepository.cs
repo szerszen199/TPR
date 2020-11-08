@@ -152,9 +152,9 @@ namespace Shop
 		{
 			return dataContext.bills;
 		}
-		public void UpdateBill(Bill bill, int amountBought, Client client, MagazineState magazineState, Product product)
+		public void UpdateBill(Bill bill, int amount, Client client, MagazineState magazineState, Product product)
 		{
-			bill.AmountBought = amountBought;
+			bill.Amount = amount;
 			bill.Client = client;
 			bill.MagazineState = magazineState;
 			bill.Product = product;

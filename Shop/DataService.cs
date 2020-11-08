@@ -76,7 +76,7 @@ namespace Shop
 
             for (int i = 0; i < colection.Count; i++)
             {
-                Console.WriteLine($"{i}. Client = {colection[i].Client.FirstName} {colection[i].Client.SurName}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].AmountBought}, Paid = {colection[i].Paid}");
+                Console.WriteLine($"{i}. Client = {colection[i].Client.FirstName} {colection[i].Client.SurName}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}, Paid = {colection[i].Price}");
             }
 
         }

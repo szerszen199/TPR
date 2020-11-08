@@ -5,21 +5,13 @@ using System.Reflection;
 
 namespace Shop.DataTypes
 {
-    public class Bill
+    public class Bill : StockEvent
     {
-        public int AmountBought { get; set; }
         public Client Client { get; set; }
-        public MagazineState MagazineState { get; set; }
-        public Product Product { get; set; }
-        public Double Paid { get; set; }
 
-        public Bill(int amountBought, Client client, MagazineState magazineState, Product product)
+        public Bill(int amount, Client client, MagazineState magazineState, Product product) : base(amount, magazineState, product)
         {
-            AmountBought = amountBought;
             Client = client;
-            MagazineState = magazineState;
-            Product = product;
-            Paid = amountBought * product.Cost;
         }
     }
 }

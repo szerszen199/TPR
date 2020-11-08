@@ -71,12 +71,12 @@ namespace DataTests
             MagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddBill(5, testClient, testMagazineState, testProduct);
             Bill testBill = (Bill)dataRepository.GetBill(0);
-            Assert.AreEqual(5, testBill.AmountBought);
+            Assert.AreEqual(5, testBill.Amount);
             Assert.AreEqual(testClient, testBill.Client);
             Assert.AreEqual(testMagazineState, testBill.MagazineState);
             Assert.AreEqual(testProduct, testBill.Product);
             dataRepository.UpdateBill(testBill, 10, testClient, testMagazineState, testProduct);
-            Assert.AreEqual(10, testBill.AmountBought);
+            Assert.AreEqual(10, testBill.Amount);
 
             dataRepository.DeleteBill(testBill);
             Assert.AreEqual(null, dataRepository.GetBill(0));
