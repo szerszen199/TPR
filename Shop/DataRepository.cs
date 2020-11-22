@@ -3,7 +3,6 @@ using Shop.DataTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Shop.DataFiller;
-using System.Globalization;
 
 namespace Shop
 {

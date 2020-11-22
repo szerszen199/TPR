@@ -10,7 +10,7 @@ using Shop.DataFiller;
 namespace UnitTests
 {
     [TestClass]
-    public class FillFromFileTest
+    public class FillerTest
     {
 
         [TestMethod]
@@ -18,7 +18,12 @@ namespace UnitTests
         {
             IDataRepository dataRepository = new DataRepository(new RandomFiller());
             dataRepository.Fill();
-            //TODO testy do RANOMFILLERa
+
+            Assert.AreEqual(7,dataRepository.GetAllClients().Count);
+            Assert.AreEqual(3, dataRepository.GetAllProducts().Count);
+            Assert.AreEqual(3, dataRepository.GetAllMagazineStates().Count);
+            Assert.AreEqual(2, dataRepository.GetAllBills().Count);
+            Assert.AreEqual(1, dataRepository.GetAllRestocks().Count);
         }
 
         [TestMethod]
