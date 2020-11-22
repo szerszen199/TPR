@@ -3,10 +3,12 @@ using Shop.DataTypes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Shop.DataFiller;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("UnitTests")]
 namespace Shop
 {
-    public class DataRepository : IDataRepository
+    internal class DataRepository : IDataRepository
     {
         public DataContext dataContext;
         public IDataFiller DataFiller;
