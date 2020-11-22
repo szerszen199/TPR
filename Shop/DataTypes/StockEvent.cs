@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 
 namespace Shop.DataTypes
 {
     public abstract class StockEvent
     {
-        public int Amount { get; set; }
-        public MagazineState MagazineState { get; set; }
-        public Product Product { get; set; }
-        public Double Price { get; set; }
 
-        public StockEvent(int amount, MagazineState magazineState, Product product)
+        public int Amount { get; set; }
+        public IMagazineState MagazineState { get; set; }
+        public IProduct Product { get; set; }
+        public double Price { get; set; }
+
+        public StockEvent(int amount, IMagazineState magazineState, IProduct product)
         {
             Amount = amount;
             MagazineState = magazineState;

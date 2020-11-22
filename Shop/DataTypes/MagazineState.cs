@@ -4,13 +4,13 @@ using System.Reflection;
 
 namespace Shop.DataTypes
 {
-    public class MagazineState
+    public class MagazineState : IMagazineState
     {
         public Guid Guid { get; private set; }
-        public Product Product { get; set; }
+        public IProduct Product { get; set; }
         public int Amount { get; set; }
 
-        public MagazineState(Product product ,int amount)
+        public MagazineState(IProduct product, int amount)
         {
             Product = product;
             Amount = amount;

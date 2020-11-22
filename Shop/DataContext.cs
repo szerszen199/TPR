@@ -8,9 +8,9 @@ namespace Shop
 	public class DataContext
 	{
 		public ObservableCollection<StockEvent> stockEvents = new ObservableCollection<StockEvent>();
-		public List<Client> clients = new List<Client>();
-		public ObservableCollection<MagazineState> magazineStates = new ObservableCollection<MagazineState>();
-		public Dictionary<Guid, Product> products = new Dictionary<Guid, Product>();
+		public List<IClient> clients = new List<IClient>();
+		public ObservableCollection<IMagazineState> magazineStates = new ObservableCollection<IMagazineState>();
+		public Dictionary<Guid, IProduct> products = new Dictionary<Guid, IProduct>();
 		public DataContext()
 		{
 		}

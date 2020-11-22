@@ -19,7 +19,7 @@ namespace DataTests
 
             Guid ProductGuid= new Guid("C83CC55E-8C61-444F-86EA-54C5F53B9B3E");
             dataRepository.AddProduct(ProductGuid, 10.98, "table");
-            Product testProduct = dataRepository.GetProduct(ProductGuid);
+            IProduct testProduct = dataRepository.GetProduct(ProductGuid);
             Assert.AreEqual(10.98, testProduct.Cost);
             Assert.AreEqual("table", testProduct.ProductName);
             dataRepository.UpdateProduct(ProductGuid, 15.99, "Wooden table");
@@ -33,7 +33,7 @@ namespace DataTests
         public void ClientTest()
         {
             dataRepository.AddClient("Tomasz", "Wozniak");
-            Client testClient = dataRepository.GetClient(0);
+            IClient testClient = dataRepository.GetClient(0);
             Assert.AreEqual("Tomasz", testClient.FirstName);
             Assert.AreEqual("Wozniak", testClient.SurName);
             dataRepository.UpdateClient(testClient, "Grzegorz", "Muszynski");
@@ -47,9 +47,9 @@ namespace DataTests
         {
             Guid ProductGuid = new Guid("C83CC55E-8C61-444F-86EA-54C5F53B9B3E");
             dataRepository.AddProduct(ProductGuid, 10.98, "table");
-            Product testProduct = dataRepository.GetProduct(ProductGuid);
+            IProduct testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddMagazineState(testProduct, 10);
-            MagazineState testMagazineState = dataRepository.GetMagazineState(0);
+            IMagazineState testMagazineState = dataRepository.GetMagazineState(0);
             Assert.AreEqual(testProduct, testMagazineState.Product);
             Assert.AreEqual(10, testMagazineState.Amount);
             dataRepository.UpdateMagazineState(testMagazineState, testProduct, 99);
@@ -64,11 +64,11 @@ namespace DataTests
         {
             Guid ProductGuid = new Guid();
             dataRepository.AddProduct(ProductGuid, 10.98, "table");
-            Product testProduct = dataRepository.GetProduct(ProductGuid);
+            IProduct testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddClient("Tomasz", "Wozniak");
-            Client testClient = dataRepository.GetClient(0);
+            IClient testClient = dataRepository.GetClient(0);
             dataRepository.AddMagazineState(testProduct, 10);
-            MagazineState testMagazineState = dataRepository.GetMagazineState(0);
+            IMagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddBill(5, testClient, testMagazineState, testProduct);
             Bill testBill = (Bill)dataRepository.GetEvent(0);
             Assert.AreEqual(5, testBill.Amount);
@@ -87,9 +87,9 @@ namespace DataTests
         {
             Guid ProductGuid = new Guid();
             dataRepository.AddProduct(ProductGuid, 10.98, "table");
-            Product testProduct = dataRepository.GetProduct(ProductGuid);
+            IProduct testProduct = dataRepository.GetProduct(ProductGuid);
             dataRepository.AddMagazineState(testProduct, 10);
-            MagazineState testMagazineState = dataRepository.GetMagazineState(0);
+            IMagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddRestock(5, testMagazineState, testProduct);
             Restock testRestock = (Restock)dataRepository.GetEvent(0);
             Assert.AreEqual(5, testRestock.Amount);

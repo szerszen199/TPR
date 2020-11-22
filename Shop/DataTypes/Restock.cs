@@ -8,7 +8,7 @@ namespace Shop.DataTypes
     public class Restock : StockEvent
     {
 
-        public Restock(int amount, MagazineState magazineState, Product product) : base(amount, magazineState, product)
+        public Restock(int amount, IMagazineState magazineState, IProduct product) : base(amount, magazineState, product)
         {
         }
     }

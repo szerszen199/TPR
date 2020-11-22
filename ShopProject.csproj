@@ -9,6 +9,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,17 +96,28 @@
     <Compile Include="Shop\DataContext.cs" />
     <Compile Include="Shop\DataRepository.cs" />
     <Compile Include="Shop\DataTypes\Bill.cs" />
+    <Compile Include="Shop\DataTypes\IBill.cs" />
+    <Compile Include="Shop\DataTypes\IClient.cs" />
+    <Compile Include="Shop\DataTypes\IMagazineState.cs" />
+    <Compile Include="Shop\DataTypes\IProduct.cs" />
     <Compile Include="Shop\DataTypes\Restock.cs" />
-    <Compile Include="Shop\DataTypes\StockEvent.cs" />
     <Compile Include="Shop\DataTypes\Client.cs" />
     <Compile Include="Shop\DataTypes\MagazineState.cs" />
     <Compile Include="Shop\DataTypes\Product.cs" />
+    <Compile Include="Shop\DataTypes\StockEvent.cs" />
     <Compile Include="Shop\IDataRepository.cs" />
     <Compile Include="Shop\Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\objects\info\" />
     <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

@@ -30,12 +30,12 @@ namespace Shop
             dataContext.products.Add(guid, product);
         }
 
-        public Product GetProduct(Guid guid)
+        public IProduct GetProduct(Guid guid)
         {
             return dataContext.products[guid];
         }
 
-        public Dictionary<Guid, Product> GetAllProducts()
+        public Dictionary<Guid, IProduct> GetAllProducts()
         {
             return dataContext.products;
         }
@@ -53,11 +53,11 @@ namespace Shop
 
         public void AddClient(string firstName, string surname)
         {
-            Client client = new Client(firstName, surname);
+            IClient client = new Client(firstName, surname);
             dataContext.clients.Add(client);
         }
 
-        public Client GetClient(int n)
+        public IClient GetClient(int n)
         {
             for (int i = 0; i < dataContext.clients.Count; i++)
             {
@@ -69,19 +69,19 @@ namespace Shop
             return null;
         }
 
-        public List<Client> GetAllClients()
+        public List<IClient> GetAllClients()
         {
             return dataContext.clients;
         }
 
-        public void UpdateClient(Client client, string firstName, string surName)
+        public void UpdateClient(IClient client, string firstName, string surName)
         {
             client.FirstName = firstName;
             client.SurName = surName;
 
         }
 
-        public void DeleteClient(Client client)
+        public void DeleteClient(IClient client)
         {
             for (int i = 0; i < dataContext.clients.Count; i++)
             {
@@ -92,13 +92,13 @@ namespace Shop
             }
         }
 
-        public void AddMagazineState(Product product, int amount)
+        public void AddMagazineState(IProduct product, int amount)
         {
-            MagazineState magazineState = new MagazineState(product, amount);
+            IMagazineState magazineState = new MagazineState(product, amount);
             dataContext.magazineStates.Add(magazineState);
         }
 
-        public MagazineState GetMagazineState(int n)
+        public IMagazineState GetMagazineState(int n)
         {
             for (int i = 0; i < dataContext.magazineStates.Count; i++)
             {
@@ -109,19 +109,19 @@ namespace Shop
             }
             return null;
         }
-        public ObservableCollection<MagazineState> GetAllMagazineStates()
+        public ObservableCollection<IMagazineState> GetAllMagazineStates()
         {
             return dataContext.magazineStates;
         }
 
-        public void UpdateMagazineState(MagazineState magazineState, Product product, int amount)
+        public void UpdateMagazineState(IMagazineState magazineState, IProduct product, int amount)
         {
             magazineState.Product = product;
             magazineState.Amount = amount;
 
         }
 
-        public void DeleteMagazineState(MagazineState magazineState)
+        public void DeleteMagazineState(IMagazineState magazineState)
         {
             for (int i = 0; i < dataContext.magazineStates.Count; i++)
             {
@@ -132,9 +132,9 @@ namespace Shop
             }
         }
 
-        public void AddBill(int amountBought, Client client, MagazineState magazineState, Product product)
+        public void AddBill(int amountBought, IClient client, IMagazineState magazineState, IProduct product)
         {
-            Bill bill = new Bill(amountBought, client, magazineState, product);
+            StockEvent bill = new Bill(amountBought, client, magazineState, product);
             dataContext.stockEvents.Add(bill);
         }
 
@@ -153,7 +153,7 @@ namespace Shop
         {
             return dataContext.stockEvents;
         }
-        public void UpdateBill(Bill bill, int amount, Client client, MagazineState magazineState, Product product)
+        public void UpdateBill(IBill bill, int amount, IClient client, IMagazineState magazineState, IProduct product)
         {
             bill.Amount = amount;
             bill.Client = client;
@@ -161,7 +161,7 @@ namespace Shop
             bill.Product = product;
         }
 
-        public void DeleteBill(Bill bill)
+        public void DeleteBill(StockEvent bill)
         {
             for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {
@@ -172,13 +172,13 @@ namespace Shop
             }
         }
 
-        public void AddRestock(int amount, MagazineState magazineState, Product product)
+        public void AddRestock(int amount, IMagazineState magazineState, IProduct product)
         {
-            Restock restock = new Restock(amount, magazineState, product);
+            StockEvent restock = new Restock(amount, magazineState, product);
             dataContext.stockEvents.Add(restock);
         }
 
-        public void UpdateRestock(Restock restock, int amount, MagazineState magazineState, Product product)
+        public void UpdateRestock(StockEvent restock, int amount, IMagazineState magazineState, IProduct product)
         {
             restock.Amount = amount;
             restock.MagazineState = magazineState;

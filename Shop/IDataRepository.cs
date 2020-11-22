@@ -7,29 +7,29 @@ namespace Shop
 {
     public interface IDataRepository
     {
-        void AddBill(int amountBought, Client client, MagazineState magazineState, Product product);
+        void AddBill(int amountBought, IClient client, IMagazineState magazineState, IProduct product);
         void AddClient(string firstName, string surname);
-        void AddMagazineState(Product product, int amount);
+        void AddMagazineState(IProduct product, int amount);
         void AddProduct(Guid guid, double Cost, string ProductName);
-        void AddRestock(int amount, MagazineState magazineState, Product product);
-        void DeleteBill(Bill bill);
-        void DeleteClient(Client client);
-        void DeleteMagazineState(MagazineState magazineState);
+        void AddRestock(int amount, IMagazineState magazineState, IProduct product);
+        void DeleteBill(StockEvent bill);
+        void DeleteClient(IClient client);
+        void DeleteMagazineState(IMagazineState magazineState);
         void DeleteProduct(Guid guid);
         void DeleteRestock(Restock restock);
         void Fill();
         ObservableCollection<StockEvent> GetStockEvents();
-        List<Client> GetAllClients();
-        ObservableCollection<MagazineState> GetAllMagazineStates();
-        Dictionary<Guid, Product> GetAllProducts();
-        Client GetClient(int n);
-        MagazineState GetMagazineState(int n);
-        Product GetProduct(Guid guid);
-        void UpdateBill(Bill bill, int amount, Client client, MagazineState magazineState, Product product);
-        void UpdateClient(Client client, string firstName, string surName);
-        void UpdateMagazineState(MagazineState magazineState, Product product, int amount);
+        List<IClient> GetAllClients();
+        ObservableCollection<IMagazineState> GetAllMagazineStates();
+        Dictionary<Guid, IProduct> GetAllProducts();
+        IClient GetClient(int n);
+        IMagazineState GetMagazineState(int n);
+        IProduct GetProduct(Guid guid);
+        void UpdateBill(IBill bill, int amount, IClient client, IMagazineState magazineState, IProduct product);
+        void UpdateClient(IClient client, string firstName, string surName);
+        void UpdateMagazineState(IMagazineState magazineState, IProduct product, int amount);
         void UpdateProduct(Guid guid, double cost, string productName);
-        void UpdateRestock(Restock restock, int amount, MagazineState magazineState, Product product);
+        void UpdateRestock(StockEvent restock, int amount, IMagazineState magazineState, IProduct product);
         StockEvent GetEvent(int v);
     }
 }

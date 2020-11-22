@@ -5,11 +5,12 @@ using System.Reflection;
 
 namespace Shop.DataTypes
 {
-    public class Bill : StockEvent
+    public class Bill : StockEvent, IBill
     {
-        public Client Client { get; set; }
+        public IClient Client { get; set; }
 
-        public Bill(int amount, Client client, MagazineState magazineState, Product product) : base(amount, magazineState, product)
+
+        public Bill(int amount, IClient client, IMagazineState magazineState, IProduct product) : base(amount, magazineState, product)
         {
             Client = client;
         }
