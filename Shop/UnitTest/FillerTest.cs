@@ -22,8 +22,7 @@ namespace UnitTests
             Assert.AreEqual(7,dataRepository.GetAllClients().Count);
             Assert.AreEqual(3, dataRepository.GetAllProducts().Count);
             Assert.AreEqual(3, dataRepository.GetAllMagazineStates().Count);
-            Assert.AreEqual(2, dataRepository.GetAllBills().Count);
-            Assert.AreEqual(1, dataRepository.GetAllRestocks().Count);
+            Assert.AreEqual(3, dataRepository.GetStockEvents().Count);
         }
 
         [TestMethod]
@@ -37,7 +36,7 @@ namespace UnitTests
             Assert.AreEqual("Grzegorz", dataRepository.GetClient(0).FirstName);
             Assert.AreEqual("Table", dataRepository.GetProduct(Guid).ProductName);
             Assert.AreEqual(10, dataRepository.GetMagazineState(0).Amount);
-            Assert.AreEqual(4, dataRepository.GetBill(0).Amount);
+            Assert.AreEqual(4, dataRepository.GetEvent(0).Amount);
 
         }
     }

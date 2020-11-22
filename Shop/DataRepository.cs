@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Shop.DataFiller;
 using Shop.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Shop.DataFiller;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("UnitTests")]
@@ -135,23 +135,23 @@ namespace Shop
         public void AddBill(int amountBought, Client client, MagazineState magazineState, Product product)
         {
             Bill bill = new Bill(amountBought, client, magazineState, product);
-            dataContext.bills.Add(bill);
+            dataContext.stockEvents.Add(bill);
         }
 
-        public Bill GetBill(int n)
+        public StockEvent GetEvent(int n)
         {
-            for (int i = 0; i < dataContext.bills.Count; i++)
+            for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {
                 if (n == i)
                 {
-                    return dataContext.bills[i];
+                    return dataContext.stockEvents[i];
                 }
             }
             return null;
         }
-        public ObservableCollection<Bill> GetAllBills()
+        public ObservableCollection<StockEvent> GetStockEvents()
         {
-            return dataContext.bills;
+            return dataContext.stockEvents;
         }
         public void UpdateBill(Bill bill, int amount, Client client, MagazineState magazineState, Product product)
         {
@@ -163,11 +163,11 @@ namespace Shop
 
         public void DeleteBill(Bill bill)
         {
-            for (int i = 0; i < dataContext.bills.Count; i++)
+            for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {
-                if (bill == dataContext.bills[i])
+                if (bill == dataContext.stockEvents[i])
                 {
-                    dataContext.bills.RemoveAt(i);
+                    dataContext.stockEvents.RemoveAt(i);
                 }
             }
         }
@@ -175,24 +175,9 @@ namespace Shop
         public void AddRestock(int amount, MagazineState magazineState, Product product)
         {
             Restock restock = new Restock(amount, magazineState, product);
-            dataContext.restocks.Add(restock);
+            dataContext.stockEvents.Add(restock);
         }
 
-        public Restock GetRestock(int n)
-        {
-            for (int i = 0; i < dataContext.restocks.Count; i++)
-            {
-                if (n == i)
-                {
-                    return dataContext.restocks[i];
-                }
-            }
-            return null;
-        }
-        public ObservableCollection<Restock> GetAllRestocks()
-        {
-            return dataContext.restocks;
-        }
         public void UpdateRestock(Restock restock, int amount, MagazineState magazineState, Product product)
         {
             restock.Amount = amount;
@@ -202,11 +187,11 @@ namespace Shop
 
         public void DeleteRestock(Restock restock)
         {
-            for (int i = 0; i < dataContext.restocks.Count; i++)
+            for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {
-                if (restock == dataContext.restocks[i])
+                if (restock == dataContext.stockEvents[i])
                 {
-                    dataContext.restocks.RemoveAt(i);
+                    dataContext.stockEvents.RemoveAt(i);
                 }
             }
         }

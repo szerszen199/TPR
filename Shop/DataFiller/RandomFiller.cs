@@ -68,9 +68,9 @@ namespace Shop.DataFiller
             context.magazineStates.Add(new MagazineState(context.products[Guid2], RandomInt(100)));
             context.magazineStates.Add(new MagazineState(context.products[Guid3], RandomInt(100)));
 
-            context.bills.Add(new Bill(4, context.clients[0], context.magazineStates[0], context.products[Guid1]));
-            context.bills.Add(new Bill(1, context.clients[1], context.magazineStates[1], context.products[Guid2]));
-            context.restocks.Add(new Restock(5, context.magazineStates[1], context.products[Guid2]));
+            context.stockEvents.Add(new Bill(4, context.clients[0], context.magazineStates[0], context.products[Guid1]));
+            context.stockEvents.Add(new Bill(1, context.clients[1], context.magazineStates[1], context.products[Guid2]));
+            context.stockEvents.Add(new Restock(5, context.magazineStates[1], context.products[Guid2]));
         }
     }
 }

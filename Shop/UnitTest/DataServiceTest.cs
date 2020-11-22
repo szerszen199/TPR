@@ -22,12 +22,7 @@ namespace DataTests
             dataService.addNewClient("Grzegorz", "Muszynski");
             dataService.buyProduct(0, ProductGuid1, 10, 0);
             dataService.restockProduct(1, ProductGuid2, 10);
-            //TODO test buing product by client and show bills;
-            dataService.showAllProducts();
-            dataService.showAllMagazineStates();
-            dataService.showAllBills();
-            dataService.showAllRestocks();
-            dataService.showAllClients();
+            //TODO test buing product by client;
         }
     }
 }

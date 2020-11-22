@@ -17,7 +17,6 @@ namespace Shop
             dataRepository = new DataRepository(new ConstantFiller());
         }
 
-
         public void restockProduct(int magazineStateEnum, Guid guid, int amount)
         {
             dataRepository.AddRestock(amount, dataRepository.GetMagazineState(magazineStateEnum),
@@ -46,59 +45,7 @@ namespace Shop
                 dataRepository.GetMagazineState(magazineStateEnum).Product,
                 dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBought);
         }
-        public void showAllProducts()
-        {
-            Console.WriteLine($"Products: ");
-            foreach (KeyValuePair<Guid, Product> product in dataRepository.GetAllProducts())
-            {
-                Console.WriteLine("Guid = {0}, Cost = {1}, ProductName = {2}", product.Value.Guid, product.Value.Cost, product.Value.ProductName);
-            }
 
-        }
-        public void showAllMagazineStates()
-        {
-            Console.WriteLine($"Magazine States: ");
-            ObservableCollection<MagazineState> colection = dataRepository.GetAllMagazineStates();
-
-            for (int i = 0; i < colection.Count; i++)
-            {
-                Console.WriteLine($"{i}. Guid = {colection[i].Guid}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}");
-            }
-
-        }
-        public void showAllBills()
-        {
-            Console.WriteLine($"Bills : ");
-            ObservableCollection<Bill> colection = dataRepository.GetAllBills();
-
-            for (int i = 0; i < colection.Count; i++)
-            {
-                Console.WriteLine($"{i}. Client = {colection[i].Client.FirstName} {colection[i].Client.SurName}, Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}, Paid = {colection[i].Price}");
-            }
-
-        }
-
-        public void showAllRestocks()
-        {
-            Console.WriteLine($"Restocks : ");
-            ObservableCollection<Restock> colection = dataRepository.GetAllRestocks();
-
-            for (int i = 0; i < colection.Count; i++)
-            {
-                Console.WriteLine($"{i}. Product = {colection[i].Product.ProductName}, Amount = {colection[i].Amount}, Paid = {colection[i].Price}");
-            }
-
-        }
-        public void showAllClients()
-        {
-            Console.WriteLine($"Clients : ");
-            List<Client> colection = dataRepository.GetAllClients();
-
-            for (int i = 0; i < colection.Count; i++)
-            {
-                Console.WriteLine($"{i}. Client = {colection[i].FirstName} {colection[i].SurName}");
-            }
-        }
         public void fillData()
         {
             dataRepository.Fill();

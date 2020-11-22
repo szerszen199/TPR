@@ -70,7 +70,7 @@ namespace DataTests
             dataRepository.AddMagazineState(testProduct, 10);
             MagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddBill(5, testClient, testMagazineState, testProduct);
-            Bill testBill = (Bill)dataRepository.GetBill(0);
+            Bill testBill = (Bill)dataRepository.GetEvent(0);
             Assert.AreEqual(5, testBill.Amount);
             Assert.AreEqual(testClient, testBill.Client);
             Assert.AreEqual(testMagazineState, testBill.MagazineState);
@@ -79,7 +79,7 @@ namespace DataTests
             Assert.AreEqual(10, testBill.Amount);
 
             dataRepository.DeleteBill(testBill);
-            Assert.AreEqual(null, dataRepository.GetBill(0));
+            Assert.AreEqual(null, dataRepository.GetEvent(0));
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@ namespace DataTests
             dataRepository.AddMagazineState(testProduct, 10);
             MagazineState testMagazineState = dataRepository.GetMagazineState(0);
             dataRepository.AddRestock(5, testMagazineState, testProduct);
-            Restock testRestock = (Restock)dataRepository.GetRestock(0);
+            Restock testRestock = (Restock)dataRepository.GetEvent(0);
             Assert.AreEqual(5, testRestock.Amount);
             Assert.AreEqual(testMagazineState, testRestock.MagazineState);
             Assert.AreEqual(testProduct, testRestock.Product);
@@ -99,7 +99,7 @@ namespace DataTests
             Assert.AreEqual(10, testRestock.Amount);
 
             dataRepository.DeleteRestock(testRestock);
-            Assert.AreEqual(null, dataRepository.GetRestock(0));
+            Assert.AreEqual(null, dataRepository.GetEvent(0));
         }
     }
 }

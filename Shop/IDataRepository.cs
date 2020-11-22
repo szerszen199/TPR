@@ -18,20 +18,18 @@ namespace Shop
         void DeleteProduct(Guid guid);
         void DeleteRestock(Restock restock);
         void Fill();
-        ObservableCollection<Bill> GetAllBills();
+        ObservableCollection<StockEvent> GetStockEvents();
         List<Client> GetAllClients();
         ObservableCollection<MagazineState> GetAllMagazineStates();
         Dictionary<Guid, Product> GetAllProducts();
-        ObservableCollection<Restock> GetAllRestocks();
-        Bill GetBill(int n);
         Client GetClient(int n);
         MagazineState GetMagazineState(int n);
         Product GetProduct(Guid guid);
-        Restock GetRestock(int n);
         void UpdateBill(Bill bill, int amount, Client client, MagazineState magazineState, Product product);
         void UpdateClient(Client client, string firstName, string surName);
         void UpdateMagazineState(MagazineState magazineState, Product product, int amount);
         void UpdateProduct(Guid guid, double cost, string productName);
         void UpdateRestock(Restock restock, int amount, MagazineState magazineState, Product product);
+        StockEvent GetEvent(int v);
     }
 }
