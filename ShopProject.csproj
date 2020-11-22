@@ -34,15 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".git\config" />
@@ -81,7 +76,7 @@
   <ItemGroup>
     <Compile Include="Shop\DataFiller\ConstantFiller.cs" />
     <Compile Include="Shop\DataFiller\IDataFiller.cs" />
-    <Compile Include="Shop\DataFiller\FillFromFile.cs" />
+    <Compile Include="Shop\DataFiller\RandomFiller.cs" />
     <Compile Include="Shop\DataService.cs" />
     <Compile Include="Shop\DataContext.cs" />
     <Compile Include="Shop\DataRepository.cs" />
@@ -97,11 +92,6 @@
   <ItemGroup>
     <Folder Include=".git\objects\info\" />
     <Folder Include=".git\refs\tags\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Shop\DataFiller\dataset.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
