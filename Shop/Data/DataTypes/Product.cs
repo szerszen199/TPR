@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Shop.DataTypes
+namespace Shop.Data.DataTypes
 {
     public class Product : IProduct
     {

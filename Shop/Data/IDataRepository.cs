@@ -1,9 +1,9 @@
-﻿using Shop.DataTypes;
+﻿using Shop.Data.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Shop
+namespace Shop.Data
 {
     public interface IDataRepository
     {

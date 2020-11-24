@@ -1,12 +1,12 @@
-﻿using Shop.DataFiller;
-using Shop.DataTypes;
+﻿using Shop.Data.DataFiller;
+using Shop.Data.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("UnitTests")]
-namespace Shop
+namespace Shop.Data
 {
     internal class DataRepository : IDataRepository
     {

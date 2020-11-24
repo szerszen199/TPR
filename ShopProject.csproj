@@ -89,22 +89,22 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shop\DataFiller\IDataFiller.cs" />
-    <Compile Include="Shop\DataService.cs" />
-    <Compile Include="Shop\DataContext.cs" />
-    <Compile Include="Shop\DataRepository.cs" />
-    <Compile Include="Shop\DataTypes\Bill.cs" />
-    <Compile Include="Shop\DataTypes\IBill.cs" />
-    <Compile Include="Shop\DataTypes\IClient.cs" />
-    <Compile Include="Shop\DataTypes\IMagazineState.cs" />
-    <Compile Include="Shop\DataTypes\IProduct.cs" />
-    <Compile Include="Shop\DataTypes\Restock.cs" />
-    <Compile Include="Shop\DataTypes\Client.cs" />
-    <Compile Include="Shop\DataTypes\MagazineState.cs" />
-    <Compile Include="Shop\DataTypes\Product.cs" />
-    <Compile Include="Shop\DataTypes\StockEvent.cs" />
-    <Compile Include="Shop\IDataRepository.cs" />
     <Compile Include="Shop\Program.cs" />
+    <Compile Include="Shop\Data\DataFiller\IDataFiller.cs" />
+    <Compile Include="Shop\Logic\DataService.cs" />
+    <Compile Include="Shop\Data\DataContext.cs" />
+    <Compile Include="Shop\Data\DataRepository.cs" />
+    <Compile Include="Shop\Data\DataTypes\Bill.cs" />
+    <Compile Include="Shop\Data\DataTypes\IBill.cs" />
+    <Compile Include="Shop\Data\DataTypes\IClient.cs" />
+    <Compile Include="Shop\Data\DataTypes\IMagazineState.cs" />
+    <Compile Include="Shop\Data\DataTypes\IProduct.cs" />
+    <Compile Include="Shop\Data\DataTypes\Restock.cs" />
+    <Compile Include="Shop\Data\DataTypes\Client.cs" />
+    <Compile Include="Shop\Data\DataTypes\MagazineState.cs" />
+    <Compile Include="Shop\Data\DataTypes\Product.cs" />
+    <Compile Include="Shop\Data\DataTypes\StockEvent.cs" />
+    <Compile Include="Shop\Data\IDataRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\objects\info\" />

@@ -1,4 +1,5 @@
-﻿namespace Shop.DataTypes
+﻿
+namespace Shop.Data.DataTypes
 {
     public interface IBill
     {

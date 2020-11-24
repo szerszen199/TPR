@@ -1,9 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop;
-using Shop.DataTypes;
-using Shop.DataFiller;
 using System;
 using System.Collections.Generic;
+using Shop.Data.DataTypes;
+using Shop.Data;
 
 namespace DataTests
 {

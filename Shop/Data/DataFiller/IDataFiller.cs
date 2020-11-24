@@ -1,7 +1,6 @@
-﻿using Shop;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Shop.DataFiller
+namespace Shop.Data.DataFiller
 {
     public interface IDataFiller
     {

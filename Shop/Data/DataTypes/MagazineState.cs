@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Shop.DataTypes
+namespace Shop.Data.DataTypes
 {
     public class MagazineState : IMagazineState
     {

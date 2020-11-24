@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Shop;
-using Shop.DataFiller;
-using Shop.DataTypes;
+using Shop.Data.DataFiller;
+using Shop.Data;
+using Shop.Data.DataTypes;
 
 namespace DataTests
 {

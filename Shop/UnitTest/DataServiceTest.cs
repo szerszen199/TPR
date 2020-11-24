@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop;
-using Shop.DataTypes;
-using Shop.DataFiller;
 using System;
+using Shop.Logic;
 
 namespace DataTests
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 
 
-namespace Shop.DataTypes
+namespace Shop.Data.DataTypes
 {
     public class Bill : StockEvent, IBill
     {

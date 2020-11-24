@@ -1,13 +1,13 @@
-﻿using Shop;
-using Shop.DataTypes;
-using Shop.DataFiller;
+﻿using Shop.Data.DataFiller;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Shop.Data.DataTypes;
+using Shop.Data;
 
-namespace Shop
+namespace Shop.Logic
 {
     public class DataService
     {

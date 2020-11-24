@@ -1,6 +1,4 @@
-﻿
-
-namespace Shop.DataTypes
+﻿namespace Shop.Data.DataTypes
 {
     public abstract class StockEvent
     {
