@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Shop;
+using Shop.DataFiller;
 using Shop.DataTypes;
 
-namespace Shop.DataFiller
+namespace DataTests
 {
     public class ConstantFiller : IDataFiller
     {

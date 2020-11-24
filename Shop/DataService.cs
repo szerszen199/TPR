@@ -14,7 +14,7 @@ namespace Shop
         private IDataRepository dataRepository;
         public DataService()
         {
-            dataRepository = new DataRepository(new ConstantFiller());
+            dataRepository = new DataRepository();
         }
 
         public void restockProduct(int magazineStateEnum, Guid guid, int amount)
@@ -44,11 +44,6 @@ namespace Shop
             dataRepository.UpdateMagazineState(dataRepository.GetMagazineState(magazineStateEnum),
                 dataRepository.GetMagazineState(magazineStateEnum).Product,
                 dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBought);
-        }
-
-        public void fillData()
-        {
-            dataRepository.Fill();
         }
     }
 }

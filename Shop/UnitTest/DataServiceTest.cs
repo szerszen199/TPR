@@ -14,7 +14,6 @@ namespace DataTests
         public void MagazineService()
         {
             DataService dataService = new DataService();
-            dataService.fillData();
             Guid ProductGuid1 = new Guid("22B08781-191D-4C7F-ABDA-08926898412A");
             Guid ProductGuid2 = new Guid("5B2594A4-9B72-44A2-8B1A-3339AD4F8E97");
             dataService.addNewProductToMagazine(ProductGuid1, 10.99, "pot", 20);

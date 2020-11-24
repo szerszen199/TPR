@@ -1,11 +1,14 @@
-﻿using Shop.DataFiller;
+﻿using Shop;
+using Shop.DataFiller;
 using Shop.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shop.DataFiller
+
+
+namespace DataTests
 {
     public class RandomFiller : IDataFiller
     {
@@ -72,6 +75,8 @@ namespace Shop.DataFiller
             context.stockEvents.Add(new Bill(1, context.clients[1], context.magazineStates[1], context.products[Guid2]));
             context.stockEvents.Add(new Restock(5, context.magazineStates[1], context.products[Guid2]));
         }
+
+
     }
 }
 

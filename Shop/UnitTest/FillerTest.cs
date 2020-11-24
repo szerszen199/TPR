@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using DataTests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop;
 using Shop.DataFiller;
