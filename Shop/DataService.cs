@@ -45,5 +45,18 @@ namespace Shop
                 dataRepository.GetMagazineState(magazineStateEnum).Product,
                 dataRepository.GetMagazineState(magazineStateEnum).Amount - amountBought);
         }
+        public List<IClient> getClients()
+        {
+            return dataRepository.GetAllClients();
+        }
+
+        public Dictionary<Guid, IProduct> getProducts()
+        {
+            return dataRepository.GetAllProducts();
+        }
+        public ObservableCollection<IMagazineState> getMagazineStates()
+        {
+            return dataRepository.GetAllMagazineStates();
+        }
     }
 }

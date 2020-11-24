@@ -21,7 +21,13 @@ namespace DataTests
             dataService.addNewClient("Grzegorz", "Muszynski");
             dataService.buyProduct(0, ProductGuid1, 10, 0);
             dataService.restockProduct(1, ProductGuid2, 10);
-            //TODO test buing product by client;
+            Assert.AreEqual(10, dataService.getMagazineStates()[0].Amount);
+            Assert.AreEqual(14, dataService.getMagazineStates()[1].Amount);
+            Assert.AreEqual(1, dataService.getClients().Count);
+            Assert.AreEqual(2, dataService.getProducts().Count);
+            Assert.AreEqual(2, dataService.getMagazineStates().Count);
+
+
         }
     }
 }
