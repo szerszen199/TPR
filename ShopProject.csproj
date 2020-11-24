@@ -90,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Shop\Program.cs" />
-    <Compile Include="Shop\Data\DataFiller\IDataFiller.cs" />
+    <Compile Include="Shop\Data\IDataFiller.cs" />
     <Compile Include="Shop\Logic\DataService.cs" />
     <Compile Include="Shop\Data\DataContext.cs" />
     <Compile Include="Shop\Data\DataRepository.cs" />
