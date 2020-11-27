@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Shop.Data.DataTypes
 {
-    public class Bill : StockEvent, IBill
+    internal class Bill : StockEvent, IBill
     {
         public IClient Client { get; set; }
 

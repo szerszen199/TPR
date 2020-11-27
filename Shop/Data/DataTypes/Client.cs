@@ -2,7 +2,7 @@
 
 namespace Shop.Data.DataTypes
 {
-    public class Client : IClient
+    internal class Client : IClient
     {
         public string FirstName { get; set; }
         public string SurName { get; set; }

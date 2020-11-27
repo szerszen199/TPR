@@ -89,6 +89,7 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\Data\DataTypes\IRestock.cs" />
     <Compile Include="Shop\Program.cs" />
     <Compile Include="Shop\Data\IDataFiller.cs" />
     <Compile Include="Shop\Logic\DataService.cs" />

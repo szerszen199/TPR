@@ -161,7 +161,7 @@ namespace Shop.Data
             bill.Product = product;
         }
 
-        public void DeleteBill(StockEvent bill)
+        public void DeleteBill(IBill bill)
         {
             for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {
@@ -178,14 +178,14 @@ namespace Shop.Data
             dataContext.stockEvents.Add(restock);
         }
 
-        public void UpdateRestock(StockEvent restock, int amount, IMagazineState magazineState, IProduct product)
+        public void UpdateRestock(IRestock restock, int amount, IMagazineState magazineState, IProduct product)
         {
             restock.Amount = amount;
             restock.MagazineState = magazineState;
             restock.Product = product;
         }
 
-        public void DeleteRestock(Restock restock)
+        public void DeleteRestock(IRestock restock)
         {
             for (int i = 0; i < dataContext.stockEvents.Count; i++)
             {

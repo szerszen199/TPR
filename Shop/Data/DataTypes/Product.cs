@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Shop.Data.DataTypes
 {
-    public class Product : IProduct
+    internal class Product : IProduct
     {
         public Guid Guid { get; set; }
         public double Cost { get; set; }

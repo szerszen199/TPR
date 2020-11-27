@@ -1,4 +1,5 @@
 ﻿using Shop.Data.DataTypes;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,11 +13,11 @@ namespace Shop.Data
         void AddMagazineState(IProduct product, int amount);
         void AddProduct(Guid guid, double Cost, string ProductName);
         void AddRestock(int amount, IMagazineState magazineState, IProduct product);
-        void DeleteBill(StockEvent bill);
+        void DeleteBill(IBill bill);
         void DeleteClient(IClient client);
         void DeleteMagazineState(IMagazineState magazineState);
         void DeleteProduct(Guid guid);
-        void DeleteRestock(Restock restock);
+        void DeleteRestock(IRestock restock);
         void Fill();
         ObservableCollection<StockEvent> GetStockEvents();
         List<IClient> GetAllClients();
@@ -29,7 +30,7 @@ namespace Shop.Data
         void UpdateClient(IClient client, string firstName, string surName);
         void UpdateMagazineState(IMagazineState magazineState, IProduct product, int amount);
         void UpdateProduct(Guid guid, double cost, string productName);
-        void UpdateRestock(StockEvent restock, int amount, IMagazineState magazineState, IProduct product);
+        void UpdateRestock(IRestock restock, int amount, IMagazineState magazineState, IProduct product);
         StockEvent GetEvent(int v);
     }
 }
