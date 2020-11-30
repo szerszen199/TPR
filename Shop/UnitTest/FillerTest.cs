@@ -18,10 +18,10 @@ namespace UnitTests
             IDataRepository dataRepository = new DataRepository(new RandomFiller());
             dataRepository.Fill();
 
-            Assert.AreEqual(7,dataRepository.GetAllClients().Count);
-            Assert.AreEqual(3, dataRepository.GetAllProducts().Count);
-            Assert.AreEqual(3, dataRepository.GetAllMagazineStates().Count);
-            Assert.AreEqual(3, dataRepository.GetStockEvents().Count);
+            Assert.AreEqual(2,dataRepository.GetAllClients().Count);
+            Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
+            Assert.AreEqual(2, dataRepository.GetAllMagazineStates().Count);
+            Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);
         }
 
         [TestMethod]

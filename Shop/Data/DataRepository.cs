@@ -10,9 +10,18 @@ namespace Shop.Data
 {
     internal class DataRepository : IDataRepository
     {
-        public DataContext dataContext;
+        public DataContext dataContext { get; set; }
         public IDataFiller DataFiller;
 
+        public void SetDataContext(DataContext dataContext)
+        {
+            this.dataContext = dataContext;
+        }
+
+        public DataContext GetDataContext()
+        {
+            return dataContext;
+        }
         public DataRepository(IDataFiller dataFiller)
         {
             dataContext = new DataContext();
@@ -149,7 +158,7 @@ namespace Shop.Data
             }
             return null;
         }
-        public ObservableCollection<StockEvent> GetStockEvents()
+        public ObservableCollection<StockEvent> GetAllStockEvents()
         {
             return dataContext.stockEvents;
         }

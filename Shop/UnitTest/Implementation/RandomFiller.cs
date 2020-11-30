@@ -51,25 +51,18 @@ namespace DataTests
             
             context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
             context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
-            context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
-            context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
-            context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
-            context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
-            context.clients.Add(new Client(firstNameList[RandomInt(firstNameList.Count())], sureNameList[RandomInt(firstNameList.Count())]));
+  
+
 
             Guid Guid1 = Guid.NewGuid();
             context.products.Add(Guid1, new Product(Guid1, randomProductCostList[RandomInt(randomProductCostList.Count())], randomProductNameList[RandomInt(randomProductNameList.Count())]));
             Guid Guid2 = Guid.NewGuid();
             context.products.Add(Guid2, new Product(Guid2, randomProductCostList[RandomInt(randomProductCostList.Count())], randomProductNameList[RandomInt(randomProductNameList.Count())]));
-            Guid Guid3 = Guid.NewGuid();
-            context.products.Add(Guid3, new Product(Guid3, randomProductCostList[RandomInt(randomProductCostList.Count())], randomProductNameList[RandomInt(randomProductNameList.Count())]));
-
+   
             context.magazineStates.Add(new MagazineState(context.products[Guid1], RandomInt(100)));
             context.magazineStates.Add(new MagazineState(context.products[Guid2], RandomInt(100)));
-            context.magazineStates.Add(new MagazineState(context.products[Guid3], RandomInt(100)));
 
             context.stockEvents.Add(new Bill(4, context.clients[0], context.magazineStates[0], context.products[Guid1]));
-            context.stockEvents.Add(new Bill(1, context.clients[1], context.magazineStates[1], context.products[Guid2]));
             context.stockEvents.Add(new Restock(5, context.magazineStates[1], context.products[Guid2]));
         }
 

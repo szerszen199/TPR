@@ -19,7 +19,7 @@ namespace Shop.Data
         void DeleteProduct(Guid guid);
         void DeleteRestock(IRestock restock);
         void Fill();
-        ObservableCollection<StockEvent> GetStockEvents();
+        ObservableCollection<StockEvent> GetAllStockEvents();
         List<IClient> GetAllClients();
         ObservableCollection<IMagazineState> GetAllMagazineStates();
         Dictionary<Guid, IProduct> GetAllProducts();
@@ -32,5 +32,7 @@ namespace Shop.Data
         void UpdateProduct(Guid guid, double cost, string productName);
         void UpdateRestock(IRestock restock, int amount, IMagazineState magazineState, IProduct product);
         StockEvent GetEvent(int v);
+        DataContext GetDataContext();
+        void SetDataContext(DataContext dataContext);
     }
 }
