@@ -21,27 +21,42 @@ namespace Shop.Data
         public List<IClient> JSONToClient(string path)
         {
             string json = System.IO.File.ReadAllText(@path);
-            return JsonConvert.DeserializeObject<List<IClient>>(json, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            return JsonConvert.DeserializeObject<List<IClient>>(json, new JsonSerializerSettings 
+            { PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+            TypeNameHandling = TypeNameHandling.Auto,
+            NullValueHandling = NullValueHandling.Ignore});
             
         }
         public Dictionary<Guid, IProduct> JSONToProduct(string path)
         {
             string json = System.IO.File.ReadAllText(@path);
-            return JsonConvert.DeserializeObject<Dictionary<Guid, IProduct>>(json, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            return JsonConvert.DeserializeObject<Dictionary<Guid, IProduct>>(json, new JsonSerializerSettings
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             
         }
 
         public ObservableCollection<IMagazineState> JSONToMagazineState(string path)
         {
             string json = System.IO.File.ReadAllText(@path);
-            return JsonConvert.DeserializeObject<ObservableCollection<IMagazineState>>(json, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            return JsonConvert.DeserializeObject<ObservableCollection<IMagazineState>>(json, new JsonSerializerSettings
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             
         }
 
         public ObservableCollection<StockEvent> JSONToStockEvent(string path)
         {
             string json = System.IO.File.ReadAllText(@path);
-            return JsonConvert.DeserializeObject<ObservableCollection<StockEvent>>(json, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            return JsonConvert.DeserializeObject<ObservableCollection<StockEvent>>(json, new JsonSerializerSettings
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             
         }
 

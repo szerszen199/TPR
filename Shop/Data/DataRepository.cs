@@ -49,6 +49,11 @@ namespace Shop.Data
             return dataContext.products;
         }
 
+        public void SetAllProducts(Dictionary<Guid, IProduct> products)
+        {
+            dataContext.products = products;
+        }
+
         public void UpdateProduct(Guid guid, double cost, string productName)
         {
             dataContext.products[guid].Cost = cost;
@@ -128,6 +133,11 @@ namespace Shop.Data
             return dataContext.magazineStates;
         }
 
+        public void SetAllMagazineStates(ObservableCollection<IMagazineState> magazineStates)
+        {
+            dataContext.magazineStates = magazineStates;
+        }
+
         public void UpdateMagazineState(IMagazineState magazineState, IProduct product, int amount)
         {
             magazineState.Product = product;
@@ -166,6 +176,10 @@ namespace Shop.Data
         public ObservableCollection<StockEvent> GetAllStockEvents()
         {
             return dataContext.stockEvents;
+        }
+        public void SetAllStockEvents(ObservableCollection<StockEvent> stockEvents)
+        {
+            dataContext.stockEvents = stockEvents;
         }
         public void UpdateBill(IBill bill, int amount, IClient client, IMagazineState magazineState, IProduct product)
         {

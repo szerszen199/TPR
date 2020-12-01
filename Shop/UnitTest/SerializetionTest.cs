@@ -35,15 +35,15 @@ namespace UnitTests
             Assert.AreEqual(0, dataRepository.GetAllStockEvents().Count);
             
             Deserialize deserialize = new Deserialize();
-/*            dataRepository.SetAllClients(deserialize.JSONToClient("Clients.json"));*/
-            /*       deserialize.JSONToMagazineState();
-                   deserialize.JSONToProduct();
-                   deserialize.JSONToStockEvent();*/
-/*
-            Assert.AreEqual(2, dataRepository.GetAllClients().Count);*/
-/*            Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
+            dataRepository.SetAllClients(deserialize.JSONToClient("Clients.json"));
+            dataRepository.SetAllProducts(deserialize.JSONToProduct("Products.json"));
+            dataRepository.SetAllMagazineStates(deserialize.JSONToMagazineState("MagazineStates.json"));
+            dataRepository.SetAllStockEvents(deserialize.JSONToStockEvent("StockEvents.json"));
+
+            Assert.AreEqual(2, dataRepository.GetAllClients().Count);
+            Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
             Assert.AreEqual(2, dataRepository.GetAllMagazineStates().Count);
-            Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);*/
+            Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);
             /*            serialize = new Serialize(dataRepository.GetAllMagazineStates());
                         serialize = new Serialize(dataRepository.GetAllProducts());
                         serialize = new Serialize(dataRepository.GetAllStockEvents());*/

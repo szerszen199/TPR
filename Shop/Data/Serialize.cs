@@ -18,22 +18,38 @@ namespace Shop.Data
         */
         public void SerializeToJSON(List<IClient> clients, string path)
         {
-            string json = JsonConvert.SerializeObject(clients, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(clients, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings 
+            { PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             System.IO.File.WriteAllText(@path, json);
         }
         public void SerializeToJSON(Dictionary<Guid, IProduct> products, string path)
         {
-            string json = JsonConvert.SerializeObject(products, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(products, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings 
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             System.IO.File.WriteAllText(@path, json);
         }
         public void SerializeToJSON(ObservableCollection<IMagazineState> magazineStates, string path)
         {
-            string json = JsonConvert.SerializeObject(magazineStates, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(magazineStates, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings 
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             System.IO.File.WriteAllText(@path, json);
         }
         public void SerializeToJSON(ObservableCollection<StockEvent> stockEvents, string path)
         {
-            string json = JsonConvert.SerializeObject(stockEvents, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(stockEvents, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings
+            {   PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                TypeNameHandling = TypeNameHandling.Auto,
+                NullValueHandling = NullValueHandling.Ignore
+            });
             System.IO.File.WriteAllText(@path, json);
         }
 

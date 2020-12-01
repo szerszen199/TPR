@@ -35,5 +35,9 @@ namespace Shop.Data
         DataContext GetDataContext();
         void SetDataContext(DataContext dataContext);
         void SetAllClients(List<IClient> clients);
+        void SetAllProducts(Dictionary<Guid, IProduct> products);
+        void SetAllMagazineStates(ObservableCollection<IMagazineState> magazineStates);
+        void SetAllStockEvents(ObservableCollection<StockEvent> stockEvents);
+
     }
 }
