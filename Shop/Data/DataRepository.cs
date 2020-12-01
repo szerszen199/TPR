@@ -83,6 +83,11 @@ namespace Shop.Data
             return dataContext.clients;
         }
 
+        public void SetAllClients(List<IClient> clients)
+        {
+            dataContext.clients = clients;
+        }
+
         public void UpdateClient(IClient client, string firstName, string surName)
         {
             client.FirstName = firstName;

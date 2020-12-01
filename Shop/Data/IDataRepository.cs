@@ -34,5 +34,6 @@ namespace Shop.Data
         StockEvent GetEvent(int v);
         DataContext GetDataContext();
         void SetDataContext(DataContext dataContext);
+        void SetAllClients(List<IClient> clients);
     }
 }

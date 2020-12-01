@@ -1,64 +1,95 @@
 ﻿using Newtonsoft.Json;
+using Shop.Data;
 using Shop.Data.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace Shop.Data
 {
-    public class Serialize
+    class Serialize
     {
-        JsonSerializer serializer = new JsonSerializer();
-       
-        StreamWriter sw = new StreamWriter(@"C:\Users\szers\Source\Repos\TPR\Shop\Data\json.txt");
-
-
-        public Serialize(DataContext dataContext)
+        /*        public ObservableCollection<StockEvent> stockEvents = new ObservableCollection<StockEvent>();
+                public List<IClient> clients = new List<IClient>();
+                public ObservableCollection<IMagazineState> magazineStates = new ObservableCollection<IMagazineState>();
+                public Dictionary<Guid, IProduct> products = new Dictionary<Guid, IProduct>();
+        */
+        public void SerializeToJSON(List<IClient> clients, string path)
         {
-            serializer.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
-            serializer.Formatting = Formatting.Indented;
-            serializer.TypeNameHandling = TypeNameHandling.Objects;
-            serializer.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
-
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, dataContext, typeof(DataContext));
-            }
-
+            string json = JsonConvert.SerializeObject(clients, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            System.IO.File.WriteAllText(@path, json);
+        }
+        public void SerializeToJSON(Dictionary<Guid, IProduct> products, string path)
+        {
+            string json = JsonConvert.SerializeObject(products, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            System.IO.File.WriteAllText(@path, json);
+        }
+        public void SerializeToJSON(ObservableCollection<IMagazineState> magazineStates, string path)
+        {
+            string json = JsonConvert.SerializeObject(magazineStates, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            System.IO.File.WriteAllText(@path, json);
+        }
+        public void SerializeToJSON(ObservableCollection<StockEvent> stockEvents, string path)
+        {
+            string json = JsonConvert.SerializeObject(stockEvents, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            System.IO.File.WriteAllText(@path, json);
         }
 
-/*        public Serialize(List<IClient> clients)
+
+        public void SerializeToJSON(IDataRepository data)
         {
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, clients);
-            }
-            
-        }
-        public Serialize(Dictionary<Guid, IProduct> products)
-        {
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, products);
-            }
+            SerializeToJSON(data.GetAllClients(), "Clients.json");
+            SerializeToJSON(data.GetAllProducts(), "Products.json");
+            SerializeToJSON(data.GetAllMagazineStates(), "MagazineStates.json");
+            SerializeToJSON(data.GetAllStockEvents(), "StockEvents.json");
         }
 
-        public Serialize(ObservableCollection<IMagazineState> magazineStates)
+        public void SerializeToCSV(List<IClient> clients, string path)
         {
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            string line = "";
+            foreach (Client client in clients)
             {
-                serializer.Serialize(writer, magazineStates);
+                line += client.FirstName + ';' + client.SurName +"\n";
             }
+            System.IO.File.WriteAllText(@path, line);
         }
-        public Serialize(ObservableCollection<StockEvent> stockEvents)
+        public void SerializeToCSV(Dictionary<Guid, IProduct> products, string path)
         {
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            string linia = "";
+            foreach (KeyValuePair<Guid, IProduct> product in products)
             {
-                serializer.Serialize(writer, stockEvents);
+                linia += product.Value.Guid.ToString() + ';' + product.Value.Cost + ';' + product.Value.ProductName + "\n";
             }
-        }*/
+            System.IO.File.WriteAllText(@path, linia);
+        }
+
+        public void SerializeToCSV(ObservableCollection<IMagazineState> magazineStates, string path)
+        {
+            string linia = "";
+            foreach (IMagazineState magazineState in magazineStates)
+            {
+                linia += magazineState.Guid.ToString() + ';' + magazineState.Product + ';' + magazineState.Amount + ';' + "\n";
+            }
+            System.IO.File.WriteAllText(@path, linia);
+        }
+
+        public void SerializeToCSV(ObservableCollection<StockEvent> stockEvents, string path)
+        {
+            string linia = "";
+            foreach (StockEvent stockEvent in stockEvents)
+            {
+                linia += stockEvent.Product.ToString() + ';' + stockEvent.Price.ToString() + ';' + stockEvent.Amount + ';' + stockEvent.MagazineState + "\n";
+            }
+            System.IO.File.WriteAllText(@path, linia);
+        }
+        public void SerializeToCSV(DataRepository data)
+        {
+            SerializeToCSV(data.GetAllClients(), "Clients.csv");
+            SerializeToCSV(data.GetAllProducts(), "Products.csv");
+            SerializeToCSV(data.GetAllMagazineStates(), "MagazineStates.csv");
+            SerializeToCSV(data.GetAllStockEvents(), "StockEvents.csv");
+        }
     }
 }
