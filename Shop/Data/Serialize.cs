@@ -100,7 +100,7 @@ namespace Shop.Data
             }
             System.IO.File.WriteAllText(@path, linia);
         }
-        public void SerializeToCSV(DataRepository data)
+        public void SerializeToCSV(IDataRepository data)
         {
             SerializeToCSV(data.GetAllClients(), "Clients.csv");
             SerializeToCSV(data.GetAllProducts(), "Products.csv");

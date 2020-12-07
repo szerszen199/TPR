@@ -44,9 +44,29 @@ namespace UnitTests
             Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
             Assert.AreEqual(2, dataRepository.GetAllMagazineStates().Count);
             Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);
-            /*            serialize = new Serialize(dataRepository.GetAllMagazineStates());
-                        serialize = new Serialize(dataRepository.GetAllProducts());
-                        serialize = new Serialize(dataRepository.GetAllStockEvents());*/
+
+            serialize.SerializeToCSV(dataRepository);
+
+            dataRepository = new DataRepository(new RandomFiller());
+
+            Assert.AreEqual(0, dataRepository.GetAllClients().Count);
+            Assert.AreEqual(0, dataRepository.GetAllProducts().Count);
+            Assert.AreEqual(0, dataRepository.GetAllMagazineStates().Count);
+            Assert.AreEqual(0, dataRepository.GetAllStockEvents().Count);
+
+            dataRepository.SetAllClients(deserialize.CSVToClients("Clients.csv"));
+            dataRepository.SetAllProducts(deserialize.CSVToProducts("Products.csv"));
+            /*dataRepository.SetAllMagazineStates(deserialize.CSVToMagazineState("MagazineStates.json"));*/
+            /*dataRepository.SetAllStockEvents(deserialize.CSVToStockEvent("StockEvents.json"));*/
+
+            /*            "MagazineStates.csv"
+                            "StockEvents.csv"*/
+            /*dataRepository = new DataRepository(new RandomFiller());*/
+            Assert.AreEqual(2, dataRepository.GetAllClients().Count);
+            Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
+            /*            Assert.AreEqual(2, dataRepository.GetAllMagazineStates().Count);
+                        Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);*/
+
         }
     }
 }
