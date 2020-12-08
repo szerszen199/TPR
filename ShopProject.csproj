@@ -93,6 +93,7 @@
     <None Include="Shop\Shop.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\Data\ConsoleFiller.cs" />
     <Compile Include="Shop\Data\Deserialize.cs" />
     <Compile Include="Shop\Data\Serialize.cs" />
     <Compile Include="Shop\Data\DataTypes\IRestock.cs" />
