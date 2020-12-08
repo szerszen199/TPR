@@ -13,7 +13,6 @@ namespace Shop.Data
 {
     public class Deserialize
     {
-        DataContext dataContext;
 
         public List<IClient> JSONToClient(string path)
         {
@@ -82,23 +81,5 @@ namespace Shop.Data
             return products;
         }
 
-/*        public ObservableCollection<IMagazineState> CSVToMagazineStates(string path)
-        {
-            string[] fileString = System.IO.File.ReadAllLines(@path);
-            ObservableCollection<IMagazineState> magazineStates = new ObservableCollection<IMagazineState>();
-            foreach (string line in fileString)
-            {
-                string[] words = line.Split(';');
-                Guid ProductGuid = new Guid(words[0]);
-                magazineStates.Add(ProductGuid, new MagazineState(new product(words[0]), words[1]);
-            }
-            return magazineStates;
-        }*/
-        /*
-        public ObservableCollection<StockEvent> stockEvents = new ObservableCollection<StockEvent>();
-        public List<IClient> clients = new List<IClient>();
-        public ObservableCollection<IMagazineState> magazineStates = new ObservableCollection<IMagazineState>();
-        public Dictionary<Guid, IProduct> products = new Dictionary<Guid, IProduct>();
-        */
     }
 }    

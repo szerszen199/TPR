@@ -11,11 +11,6 @@ namespace Shop.Data
 {
     class Serialize
     {
-        /*        public ObservableCollection<StockEvent> stockEvents = new ObservableCollection<StockEvent>();
-                public List<IClient> clients = new List<IClient>();
-                public ObservableCollection<IMagazineState> magazineStates = new ObservableCollection<IMagazineState>();
-                public Dictionary<Guid, IProduct> products = new Dictionary<Guid, IProduct>();
-        */
         public void SerializeToJSON(List<IClient> clients, string path)
         {
             string json = JsonConvert.SerializeObject(clients, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings 

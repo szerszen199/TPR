@@ -13,14 +13,14 @@ namespace Shop
             Console.WriteLine("2. Import from JSON");
             Console.WriteLine("3. Export to CSV");
             Console.WriteLine("4. Import from CSV");
-            int choice = Console.Read() - '0';
+            int number = Console.Read() - '0';
 
             IDataRepository dataRepository = new DataRepository(new ConsoleFiller());
             IDataRepository dataRepositoryDeserialized = new DataRepository(new ConsoleFiller());
             dataRepository.Fill();
             Serialize serialize = new Serialize();
             Deserialize deserialize = new Deserialize();
-            switch (choice)
+            switch (number)
             {
                 case 1:
                     serialize.SerializeToJSON(dataRepository);
@@ -59,7 +59,6 @@ namespace Shop
                 default:
                     break;
             }
-
 
             Console.ReadKey();
         }

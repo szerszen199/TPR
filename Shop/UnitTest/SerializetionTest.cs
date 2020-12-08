@@ -56,17 +56,9 @@ namespace UnitTests
 
             dataRepository.SetAllClients(deserialize.CSVToClients("Clients.csv"));
             dataRepository.SetAllProducts(deserialize.CSVToProducts("Products.csv"));
-            /*dataRepository.SetAllMagazineStates(deserialize.CSVToMagazineState("MagazineStates.json"));*/
-            /*dataRepository.SetAllStockEvents(deserialize.CSVToStockEvent("StockEvents.json"));*/
 
-            /*            "MagazineStates.csv"
-                            "StockEvents.csv"*/
-            /*dataRepository = new DataRepository(new RandomFiller());*/
             Assert.AreEqual(2, dataRepository.GetAllClients().Count);
             Assert.AreEqual(2, dataRepository.GetAllProducts().Count);
-            /*            Assert.AreEqual(2, dataRepository.GetAllMagazineStates().Count);
-                        Assert.AreEqual(2, dataRepository.GetAllStockEvents().Count);*/
-
         }
     }
 }
