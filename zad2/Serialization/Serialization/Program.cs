@@ -1,12 +1,14 @@
 ﻿using Serialization.Data;
 using Serialization.Serializer;
 using System;
+using System.IO;
 
 namespace Serialization
 {
     class Program
     {
         private static readonly string filePath = "./data.txt";
+        private static readonly string filePathjson = "./data.json";
 
         static void Main()
         {
@@ -30,6 +32,24 @@ namespace Serialization
             Console.WriteLine(serializedClass.Class2.Text);
             Console.WriteLine(serializedClass.Class3.Text);
 
+            Console.ReadLine();
+
+            using (FileStream fileStream = new FileStream(filePathjson, FileMode.Create))
+            {
+                JsonSerializer.Serialize(fileStream, class1);
+                Console.WriteLine("Object serialized");
+                Console.WriteLine("Path: " + Directory.GetCurrentDirectory());
+            }
+            serializedClass = new Class1();
+            using (FileStream fileStream = new FileStream(filePathjson, FileMode.Open))
+            {
+                serializedClass = JsonSerializer.Deserialize<Class1>(fileStream);
+                Console.WriteLine(serializedClass.Text);
+                Console.WriteLine(serializedClass.DoubleVal);
+                Console.WriteLine(serializedClass.DateTime);
+                Console.WriteLine(serializedClass.Class2.Text);
+                Console.WriteLine(serializedClass.Class3.Text);
+            }
             Console.ReadLine();
         }
     }

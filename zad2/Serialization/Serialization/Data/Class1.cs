@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Serialization.Data
 {
+    [Serializable]
+    [JsonObject]
     public class Class1 : ISerializable
     {
         public string Text { get; set; }
@@ -28,12 +29,10 @@ namespace Serialization.Data
             DateTime = dateTime;
             DoubleVal = doubleVal;
         }
-
         public Class1()
         {
 
         }
-
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("Text", Text);

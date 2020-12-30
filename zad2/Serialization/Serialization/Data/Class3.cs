@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
+using System;
 using System.Runtime.Serialization;
 
 namespace Serialization.Data
 {
     [Serializable]
+    [JsonObject]
     public class Class3 : ISerializable
     {
         public string Text { get; set; }
@@ -13,7 +13,6 @@ namespace Serialization.Data
         public double DoubleVal { get; set; }
         public Class1 Class1 { get; set; }
         public Class2 Class2 { get; set; }
-
         public Class3(string text, DateTime dateTime, double doubleVal, Class1 class1, Class2 class2)
         {
             Text = text;
