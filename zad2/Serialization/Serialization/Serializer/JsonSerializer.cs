@@ -1,22 +1,19 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Schema;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace Serialization.Serializer
 {
-    class JsonSerializer
+    public class JsonSerializer
     {
+
         public static void Serialize(Stream serializationStream, object obj)
         {
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented, new JsonSerializerSettings
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 TypeNameHandling = TypeNameHandling.Auto,
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
             });
             serializationStream.Write(Encoding.UTF8.GetBytes(json), 0, Encoding.UTF8.GetBytes(json).Length);
         }
@@ -29,7 +26,7 @@ namespace Serialization.Serializer
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 TypeNameHandling = TypeNameHandling.Auto,
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
             });
         }
     }

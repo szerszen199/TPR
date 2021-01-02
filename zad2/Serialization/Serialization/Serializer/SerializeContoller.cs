@@ -3,9 +3,9 @@ using System.IO;
 
 namespace Serialization.Serializer
 {
-    class SerializeContoller
+    public class SerializeContoller
     {
-        static public Boolean CreateFile(object myObject, string filename)
+        static public Boolean SertializeObject(object myObject, string filename)
         {
             CustomSerializer serializer = new CustomSerializer();
             Stream stream = File.Open(filename, FileMode.Create);
@@ -21,7 +21,7 @@ namespace Serialization.Serializer
             stream.Close();
             return true;
         }
-        static public object ReadFile(string filename)
+        static public object DesertializeObject(string filename)
         {
             CustomSerializer serializer = new CustomSerializer();
             Stream stream = File.Open(filename, FileMode.Open);
