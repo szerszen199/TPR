@@ -55,7 +55,7 @@ namespace Serialization.Serializer
             string streamContent;
             Dictionary<long, object> DeserializedObjects = new Dictionary<long, object>();
             long tempID = 0;
-            long mainID = -1;
+            long rootID = -1;
             streamContent = new StreamReader(serializationStream).ReadToEnd();            
             string[] lines = streamContent.Split('\n');
             foreach (string line in lines)
@@ -77,8 +77,8 @@ namespace Serialization.Serializer
                     {
                         Type idType = Type.GetType(TypeKeyValue[0]);
                         tempID = (long)Convert.ChangeType(TypeKeyValue[2], idType, CultureInfo.InvariantCulture);
-                        if (mainID < 0)
-                            mainID = tempID;
+                        if (rootID < 0)
+                            rootID = tempID;
                     }
                     else if (TypeKeyValue[2].Contains("$")){}
                     else
@@ -91,7 +91,7 @@ namespace Serialization.Serializer
             }
             Reference(DeserializedObjects, lines);
 
-            return DeserializedObjects[mainID];
+            return DeserializedObjects[rootID];
         }
 
 
@@ -149,6 +149,7 @@ namespace Serialization.Serializer
 
         protected override void WriteDateTime(DateTime val, string name)
         {
+            val = val.ToUniversalTime();
             output += val.GetType() + ";" + name + ";" + val.ToString("u", CultureInfo.InvariantCulture);
         }
 
