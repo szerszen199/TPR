@@ -97,6 +97,7 @@
       <Association Name="Product_ProductReview" Member="ProductReview" ThisKey="ProductID" OtherKey="ProductID" Type="ProductReview" />
       <Association Name="Product_TransactionHistory" Member="TransactionHistory" ThisKey="ProductID" OtherKey="ProductID" Type="TransactionHistory" />
       <Association Name="Product_WorkOrder" Member="WorkOrder" ThisKey="ProductID" OtherKey="ProductID" Type="WorkOrder" />
+      <Association Name="Product_ProductVendor" Member="ProductVendor" ThisKey="ProductID" OtherKey="ProductID" Type="ProductVendor" />
       <Association Name="ProductModel_Product" Member="ProductModel" ThisKey="ProductModelID" OtherKey="ProductModelID" Type="ProductModel" IsForeignKey="true" />
       <Association Name="ProductSubcategory_Product" Member="ProductSubcategory" ThisKey="ProductSubcategoryID" OtherKey="ProductSubcategoryID" Type="ProductSubcategory" IsForeignKey="true" />
       <Association Name="UnitMeasure_Product" Member="UnitMeasure" ThisKey="SizeUnitMeasureCode" OtherKey="UnitMeasureCode" Type="UnitMeasure" IsForeignKey="true" />
@@ -275,6 +276,7 @@
       <Association Name="UnitMeasure_BillOfMaterials" Member="BillOfMaterials" ThisKey="UnitMeasureCode" OtherKey="UnitMeasureCode" Type="BillOfMaterials" />
       <Association Name="UnitMeasure_Product" Member="Product" ThisKey="UnitMeasureCode" OtherKey="SizeUnitMeasureCode" Type="Product" />
       <Association Name="UnitMeasure_Product1" Member="Product1" ThisKey="UnitMeasureCode" OtherKey="WeightUnitMeasureCode" Type="Product" />
+      <Association Name="UnitMeasure_ProductVendor" Member="ProductVendor" ThisKey="UnitMeasureCode" OtherKey="UnitMeasureCode" Type="ProductVendor" />
     </Type>
   </Table>
   <Table Name="Production.WorkOrder" Member="WorkOrder">
@@ -292,6 +294,37 @@
       <Association Name="WorkOrder_WorkOrderRouting" Member="WorkOrderRouting" ThisKey="WorkOrderID" OtherKey="WorkOrderID" Type="WorkOrderRouting" />
       <Association Name="Product_WorkOrder" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
       <Association Name="ScrapReason_WorkOrder" Member="ScrapReason" ThisKey="ScrapReasonID" OtherKey="ScrapReasonID" Type="ScrapReason" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Purchasing.ProductVendor" Member="ProductVendor">
+    <Type Name="ProductVendor">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusinessEntityID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AverageLeadTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StandardPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LastReceiptCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LastReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MinOrderQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxOrderQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OnOrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitMeasureCode" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ProductVendor" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="UnitMeasure_ProductVendor" Member="UnitMeasure" ThisKey="UnitMeasureCode" OtherKey="UnitMeasureCode" Type="UnitMeasure" IsForeignKey="true" />
+      <Association Name="Vendor_ProductVendor" Member="Vendor" ThisKey="BusinessEntityID" OtherKey="BusinessEntityID" Type="Vendor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Purchasing.Vendor" Member="Vendor">
+    <Type Name="Vendor">
+      <Column Name="BusinessEntityID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreditRating" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="PreferredVendorStatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ActiveFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PurchasingWebServiceURL" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Vendor_ProductVendor" Member="ProductVendor" ThisKey="BusinessEntityID" OtherKey="BusinessEntityID" Type="ProductVendor" />
     </Type>
   </Table>
 </Database>

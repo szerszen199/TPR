@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyProductSQLTools.cs" />
+    <Compile Include="MyProduct.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="SQLTools.cs" />
     <Compile Include="Production.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
