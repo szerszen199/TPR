@@ -12,9 +12,9 @@ namespace Serialization
 
         static void Main()
         {
-            Class1 class1 = new Class1("clasa1", DateTime.Now, 1.111);
-            Class2 class2 = new Class2("clasa2", DateTime.Now, 2.222);
-            Class3 class3 = new Class3("clasa3", DateTime.Now, 3.333, class1, class2);
+            Class1 class1 = new Class1("klasa1", DateTime.Now, 1.111);
+            Class2 class2 = new Class2("klasa1", DateTime.Now, 2.222);
+            Class3 class3 = new Class3("klasa1", DateTime.Now, 3.333, class1, class2);
             class1.Class2 = class2;
             class1.Class3 = class3;
             class2.Class1 = class1;
