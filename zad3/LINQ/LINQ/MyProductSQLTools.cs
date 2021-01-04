@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LINQ
 {
@@ -34,7 +31,7 @@ namespace LINQ
         public List<MyProduct> GetNMyProductsFromCategory(string categoryName, int n)
         {
             List<MyProduct> products = new List<MyProduct>((from product in Products
-                                                        where product.ProductSubcategory.ProductCategory.Name.Equals(categoryName)
+                                                        where product.ProductSubcategory != null && product.ProductSubcategory.ProductCategory.Name.Equals(categoryName)
                                                         orderby product.Name ascending
                                                         select product).Take(n));
             return products;

@@ -1,6 +1,5 @@
 using LINQ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,6 +46,29 @@ namespace SQLTests
 
                 Assert.AreEqual(798, listOfProducts[1].ProductID);
                 Assert.AreEqual("Road-550-W Yellow, 40", listOfProducts[1].Name);
+            }
+        }
+
+        [TestMethod]
+        public void GetNMyProductsFromCategory()
+        {
+            using (ProductionDataContext productionDataContext = new ProductionDataContext())
+            {
+                List<Product> products = productionDataContext.GetTable<Product>().ToList();
+                MyProductSQLTools myProductDataContext = new MyProductSQLTools(products.AsEnumerable().Select(product => new MyProduct(product)).ToList());
+                List<MyProduct> listOfProducts = myProductDataContext.GetNMyProductsFromCategory("Components", 3);
+
+                Assert.AreEqual(3, listOfProducts.Count);
+
+                Assert.AreEqual(952, listOfProducts[0].ProductID);
+                Assert.AreEqual("Chain", listOfProducts[0].Name);
+
+                Assert.AreEqual(948, listOfProducts[1].ProductID);
+                Assert.AreEqual("Front Brakes", listOfProducts[1].Name);
+
+                Assert.AreEqual(945, listOfProducts[2].ProductID);
+                Assert.AreEqual("Front Derailleur", listOfProducts[2].Name);
+
             }
         }
 
