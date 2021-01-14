@@ -14,8 +14,7 @@ namespace SQLTests
         {
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
-                List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = products.GetProductsWithoutCategoryDeclarative();
+                List<Product> results = productionDataContext.GetProductsWithoutCategoryDeclarative();
 
                 foreach (Product product in results)
                 {
@@ -31,8 +30,7 @@ namespace SQLTests
         {
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
-                List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = products.GetProductsWithoutCategoryImperative();
+                List<Product> results = productionDataContext.GetProductsWithoutCategoryImperative();
 
                 foreach (Product product in results)
                 {
@@ -49,7 +47,7 @@ namespace SQLTests
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
                 List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = products.GetProductsPagesDeclarative(5, 5);
+                List<Product> results = productionDataContext.GetProductsPagesDeclarative(5, 5);
 
                 Assert.AreEqual(results.Count, 5);
 
@@ -76,7 +74,7 @@ namespace SQLTests
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
                 List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = products.GetProductsPagesImperative(5, 5);
+                List<Product> results = productionDataContext.GetProductsPagesImperative(5, 5);
 
                 Assert.AreEqual(results.Count, 5);
 
@@ -102,10 +100,9 @@ namespace SQLTests
         {
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
-                List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<ProductVendor> vendors = productionDataContext.GetTable<ProductVendor>().ToList();
 
-                string result = products.GetProductVendorPairsDeclarative(vendors);
+
+                string result = productionDataContext.GetProductVendorPairsDeclarative();
                 string[] lines = result.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
 
                 Assert.AreEqual(460, lines.Length);

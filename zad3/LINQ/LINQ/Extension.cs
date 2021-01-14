@@ -4,42 +4,42 @@ using System.Linq;
 
 namespace LINQ
 {
-    public static class Extension
+    public partial class ProductionDataContext
     {
 
-        public static List<Product> GetProductsWithoutCategoryDeclarative(this List<Product> products)
+        public List<Product> GetProductsWithoutCategoryDeclarative()
         {
-            List<Product> productsWithoutCategory = new List<Product>(from product in products
+            List<Product> productsWithoutCategory = new List<Product>(from product in this.Product
                                                                       where product.ProductSubcategory == null
                                                                       select product);
             return productsWithoutCategory;
         }
 
-        public static List<Product> GetProductsWithoutCategoryImperative(this List<Product> products)
+        public List<Product> GetProductsWithoutCategoryImperative()
         {
-            List<Product> productsWithoutCategory = new List<Product>(products.Where(product => product.ProductSubcategory == null));
+            List<Product> productsWithoutCategory = new List<Product>(this.Product.Where(product => product.ProductSubcategory == null));
 
             return productsWithoutCategory;
         }
 
-        public static List<Product> GetProductsPagesDeclarative(this List<Product> products, int numberOfProductsOnPage, int numberOfPage)
+        public List<Product> GetProductsPagesDeclarative(int numberOfProductsOnPage, int numberOfPage)
         {
-            List<Product> productsPage = new List<Product>(from product in products
+            List<Product> productsPage = new List<Product>(from product in this.Product
                                                            select product).Skip(numberOfProductsOnPage * (numberOfPage - 1)).Take(numberOfProductsOnPage).ToList();
             return productsPage;
         }
 
-        public static List<Product> GetProductsPagesImperative(this List<Product> products, int numberOfProducts, int numberOfPage)
+        public List<Product> GetProductsPagesImperative(int numberOfProducts, int numberOfPage)
         {
-            List<Product> productsPage = new List<Product>(products.Skip(numberOfProducts * (numberOfPage - 1)).Take(numberOfProducts));
+            List<Product> productsPage = new List<Product>(this.Product.Skip(numberOfProducts * (numberOfPage - 1)).Take(numberOfProducts));
 
             return productsPage;
         }
 
-        public static string GetProductVendorPairsDeclarative(this List<Product> products, List<ProductVendor> vendors)
+        public string GetProductVendorPairsDeclarative()
         {
-            var productsQuery = (from product in products
-                                 from vendor in vendors
+            var productsQuery = (from product in this.Product
+                                 from vendor in this.ProductVendor
                                  where vendor.ProductID.Equals(product.ProductID)
                                  select new {productName = product.Name, vendorName = vendor.Vendor.Name});
 
