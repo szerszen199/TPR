@@ -7,7 +7,7 @@ namespace LINQ
     public partial class ProductionDataContext
     {
 
-        public List<Product> GetProductsWithoutCategoryDeclarative()
+        public List<Product> GetProductsWithoutCategoryQS()
         {
             List<Product> productsWithoutCategory = new List<Product>(from product in this.Product
                                                                       where product.ProductSubcategory == null
@@ -15,28 +15,28 @@ namespace LINQ
             return productsWithoutCategory;
         }
 
-        public List<Product> GetProductsWithoutCategoryImperative()
+        public List<Product> GetProductsWithoutCategoryMS()
         {
             List<Product> productsWithoutCategory = new List<Product>(this.Product.Where(product => product.ProductSubcategory == null));
 
             return productsWithoutCategory;
         }
 
-        public List<Product> GetProductsPagesDeclarative(int numberOfProductsOnPage, int numberOfPage)
+        public List<Product> GetProductsPagesQS(int numberOfProductsOnPage, int numberOfPage)
         {
             List<Product> productsPage = new List<Product>(from product in this.Product
                                                            select product).Skip(numberOfProductsOnPage * (numberOfPage - 1)).Take(numberOfProductsOnPage).ToList();
             return productsPage;
         }
 
-        public List<Product> GetProductsPagesImperative(int numberOfProducts, int numberOfPage)
+        public List<Product> GetProductsPagesMS(int numberOfProducts, int numberOfPage)
         {
             List<Product> productsPage = new List<Product>(this.Product.Skip(numberOfProducts * (numberOfPage - 1)).Take(numberOfProducts));
 
             return productsPage;
         }
 
-        public string GetProductVendorPairsDeclarative()
+        public string GetProductVendorPairsQS()
         {
             var productsQuery = (from product in this.Product
                                  from vendor in this.ProductVendor

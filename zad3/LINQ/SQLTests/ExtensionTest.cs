@@ -14,7 +14,7 @@ namespace SQLTests
         {
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
-                List<Product> results = productionDataContext.GetProductsWithoutCategoryDeclarative();
+                List<Product> results = productionDataContext.GetProductsWithoutCategoryQS();
 
                 foreach (Product product in results)
                 {
@@ -30,7 +30,7 @@ namespace SQLTests
         {
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
-                List<Product> results = productionDataContext.GetProductsWithoutCategoryImperative();
+                List<Product> results = productionDataContext.GetProductsWithoutCategoryMS();
 
                 foreach (Product product in results)
                 {
@@ -47,7 +47,7 @@ namespace SQLTests
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
                 List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = productionDataContext.GetProductsPagesDeclarative(5, 5);
+                List<Product> results = productionDataContext.GetProductsPagesQS(5, 5);
 
                 Assert.AreEqual(results.Count, 5);
 
@@ -74,7 +74,7 @@ namespace SQLTests
             using (ProductionDataContext productionDataContext = new ProductionDataContext())
             {
                 List<Product> products = productionDataContext.GetTable<Product>().ToList();
-                List<Product> results = productionDataContext.GetProductsPagesImperative(5, 5);
+                List<Product> results = productionDataContext.GetProductsPagesMS(5, 5);
 
                 Assert.AreEqual(results.Count, 5);
 
@@ -102,7 +102,7 @@ namespace SQLTests
             {
 
 
-                string result = productionDataContext.GetProductVendorPairsDeclarative();
+                string result = productionDataContext.GetProductVendorPairsQS();
                 string[] lines = result.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
 
                 Assert.AreEqual(460, lines.Length);
