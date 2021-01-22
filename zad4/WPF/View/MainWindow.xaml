@@ -3,10 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
+        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="850" Width="800">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="0,5,0,0">
+        <Button Content="Add" HorizontalAlignment="Left" Margin="50,0,0,20" VerticalAlignment="Bottom" Command="{Binding ShowAddCommand}"  Width="130"/>
+        <Button Content="Details and Update" Margin="332,0,0,20" VerticalAlignment="Bottom" Width="130" Command="{Binding ShowEditCommand}" HorizontalAlignment="Left"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="612,0,0,20" VerticalAlignment="Bottom" Command="{Binding SelectedCreditCard.DeleteProductReview}" Width="130"/>
+
+
+
+
+        <ListView ItemsSource="{Binding CreditCardList}" SelectedItem="{Binding SelectedCreditCard}" Margin="50,20,50,70">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductReviewId}" Header="ProductReviewID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductId}" Header="ProductID" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Comments}" Header="Comments" Width="500"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

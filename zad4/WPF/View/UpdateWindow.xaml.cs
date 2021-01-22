@@ -10,30 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ViewModel;
-using View.DI;
 
 namespace View
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy UpdateWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UpdateWindow : Window
     {
-        public MainWindow()
+        public UpdateWindow()
         {
             InitializeComponent();
         }
-
-        protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
-            MainViewModel mc = (MainViewModel)DataContext;
-            mc.WindowResolver = new ProductReviewUpdateResolver();
-            //mc.MainWindow = this;
-        }
-
     }
 }
