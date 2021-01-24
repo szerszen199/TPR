@@ -22,7 +22,6 @@ namespace Model
             this.emailAddress = productReview.emailAddress;
             this.rating = productReview.rating;
             this.comments = productReview.comments;
-            //this.modifiedDate = productReview.modifiedDate;
         }
 
         public ProductReviewModel(int productReviewID, int productID, string reviewerName, DateTime reviewDate, string emailAddress, int rating, string comments, DateTime modifiedDate)

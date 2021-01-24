@@ -9,45 +9,45 @@ namespace ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private static MainViewModel _instance;
+        private static MainViewModel mainViewModel;
 
-        private readonly ProductReviewOperations _creditCardService;
+        private readonly ProductReviewOperations productReviewOperations;
 
-        private ObservableCollection<UpdateViewModel> _creditCardList;
+        private ObservableCollection<UpdateViewModel> productReviewList;
 
-        private UpdateViewModel _selectedCreditCard;
+        private UpdateViewModel selectedProductReview;
 
 
-        private ICommand _showAddCommand;
-        private ICommand _showEditCommand;
+        private ICommand showAddCommand;
+        private ICommand showEditCommand;
 
         public MainViewModel() : this(new ProductReviewOperations()) { }
 
         public MainViewModel(ProductReviewOperations creditCardService)
         {
-            _creditCardService = creditCardService;
-            CreditCardList = GetCreditCards();
+            productReviewOperations = creditCardService;
+            ProductReviewList = GetProductReviews();
         }
 
         public IWindowResolver WindowResolver { get; set; }
 
-        public ObservableCollection<UpdateViewModel> CreditCardList
+        public ObservableCollection<UpdateViewModel> ProductReviewList
         {
-            get => GetCreditCards();
+            get => GetProductReviews();
             set
             {
-                _creditCardList = value;
-                OnPropertyChanged("CreditCardList");
+                productReviewList = value;
+                OnPropertyChanged("ProductReviewList");
             }
         }
 
-        public UpdateViewModel SelectedCreditCard
+        public UpdateViewModel SelectedProductReview
         {
-            get => _selectedCreditCard;
+            get => selectedProductReview;
             set
             {
-                _selectedCreditCard = value;
-                OnPropertyChanged("SelectedCreditCard");
+                selectedProductReview = value;
+                OnPropertyChanged("SelectedProductReview");
             }
         }
 
@@ -56,52 +56,52 @@ namespace ViewModel
 
         public Lazy<IOperationWindow> AddWindow { get; set; }
 
-        public ICommand ShowAddCommand => _showAddCommand ?? (_showAddCommand = new Command(ShowAddDialog));
-        public ICommand ShowEditCommand => _showEditCommand ?? (_showEditCommand = new Command(ShowEditDialog));
+        public ICommand ShowAddCommand => showAddCommand ?? (showAddCommand = new Command(ShowAddDialog));
+        public ICommand ShowEditCommand => showEditCommand ?? (showEditCommand = new Command(ShowEditDialog));
 
         public Action CloseWindow { get; set; }
 
         public static MainViewModel Instance()
         {
-            return _instance ?? (_instance = new MainViewModel());
+            return mainViewModel ?? (mainViewModel = new MainViewModel());
         }
 
-        public ObservableCollection<UpdateViewModel> GetCreditCards()
+        public ObservableCollection<UpdateViewModel> GetProductReviews()
         {
-            if (_creditCardList == null)
+            if (productReviewList == null)
             {
-                _creditCardList = new ObservableCollection<UpdateViewModel>();
+                productReviewList = new ObservableCollection<UpdateViewModel>();
             }
 
-            _creditCardList.Clear();
-            foreach (UpdateViewModel card in _creditCardService.GetAllProductReviews().Select(card => new UpdateViewModel(card, _creditCardService)))
+            productReviewList.Clear();
+            foreach (UpdateViewModel review in productReviewOperations.GetAllProductReviews().Select(review => new UpdateViewModel(review, productReviewOperations)))
             {
-                _creditCardList.Add(card);
+                productReviewList.Add(review);
             }
 
-            return _creditCardList;
+            return productReviewList;
         }
         
         private void ShowAddDialog()
         {
-            UpdateViewModel card = new UpdateViewModel(new ProductReviewModel(), _creditCardService)
+            UpdateViewModel review = new UpdateViewModel(new ProductReviewModel(), productReviewOperations)
             {
                 mode = true
             };
 
             IOperationWindow dialog = WindowResolver.GetWindow();
-            dialog.BindViewModel(card);
+            dialog.BindViewModel(review);
             dialog.Show();
-            UpdateViewModel.Container.CreditCardList = GetCreditCards();
+            UpdateViewModel.Container.ProductReviewList = GetProductReviews();
         }
 
         private void ShowEditDialog()
         {
-            _selectedCreditCard.mode = false;
-            if (SelectedCreditCard != null)
+            selectedProductReview.mode = false;
+            if (SelectedProductReview != null)
             {
                 IOperationWindow dialog = WindowResolver.GetWindow();
-                dialog.BindViewModel(_selectedCreditCard);
+                dialog.BindViewModel(selectedProductReview);
                 dialog.Show();
             }
         }

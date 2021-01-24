@@ -31,7 +31,7 @@ namespace ViewModelTests
         }
 
         [TestMethod]
-        public void CreditCardViewModelCtorTest()
+        public void UpdateViewModelCtorTest()
         {
             Assert.IsNotNull(updateViewModel.ProductReviewId);
             Assert.IsNotNull(updateViewModel.ProductId);
@@ -43,20 +43,20 @@ namespace ViewModelTests
         }
 
         [TestMethod]
-        public void CreditCardListViewModelCtorTest()
+        public void MainViewModelCtorTest()
         {
-            Assert.IsNotNull(mainViewModel.CreditCardList);
+            Assert.IsNotNull(mainViewModel.ProductReviewList);
         }
 
         [TestMethod]
-        public void CreditCardViewModelCommandsTest()
+        public void UpdateViewModelCommandsTest()
         {
             Assert.IsTrue(updateViewModel.UpdateCommand.CanExecute(null));
             Assert.IsTrue(updateViewModel.DeleteProductReview.CanExecute(null));
         }
 
         [TestMethod]
-        public void CreditCardListViewModelCommandsTest()
+        public void MainViewModelCommandsTest()
         {
             Assert.IsTrue(mainViewModel.ShowEditCommand.CanExecute(null));
             Assert.IsTrue(mainViewModel.ShowAddCommand.CanExecute(null));

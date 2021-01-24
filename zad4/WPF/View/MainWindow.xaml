@@ -19,7 +19,7 @@
 
 
 
-        <ListView ItemsSource="{Binding CreditCardList}" SelectedItem="{Binding SelectedCreditCard}" Margin="50,20,50,70">
+        <ListView ItemsSource="{Binding ProductReviewList}" SelectedItem="{Binding SelectedProductReview}" Margin="50,20,50,70">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding ProductReviewId}" Header="ProductReviewID" Width="100"/>

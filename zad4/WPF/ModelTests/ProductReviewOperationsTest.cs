@@ -29,7 +29,7 @@ namespace ModelTests
         }
 
         [TestMethod]
-        public void AddCreditCardTest()
+        public void AddProductReviewTest()
         {
             Assert.AreEqual(2, productReviewService.GetAllProductReviews().Count());
             productReviewService.AddProductReview(productReview);
@@ -37,20 +37,20 @@ namespace ModelTests
         }
 
         [TestMethod]
-        public void GetCreditCardTest()
+        public void GetProductReviewTest()
         {
             productReviewService.AddProductReview(productReview);
             Assert.AreEqual(productReview.productReviewID, productReviewService.GetProductReview(productReview.productReviewID).productReviewID);
         }
 
         [TestMethod]
-        public void GetAllCreditCardsTest()
+        public void GetProductReviewsTest()
         {
             Assert.AreEqual(2, productReviewService.GetAllProductReviews().Count());
         }
 
         [TestMethod]
-        public void UpdateCreditCardTest()
+        public void UpdateProductReviewTest()
         {
             Assert.AreEqual(2, productReviewService.GetAllProductReviews().Count());
             productReviewService.UpdateProductReview(productReviewService.GetAllProductReviews().Last().productReviewID, productReview);
@@ -59,7 +59,7 @@ namespace ModelTests
         }
 
         [TestMethod]
-        public void DeleteCreditCardTest()
+        public void DeleteProductReviewTest()
         {
             Assert.AreEqual(2, productReviewService.GetAllProductReviews().Count());
             productReviewService.AddProductReview(productReview);

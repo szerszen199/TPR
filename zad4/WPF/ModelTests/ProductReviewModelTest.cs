@@ -25,7 +25,7 @@ namespace ModelTests
         }
 
         [TestMethod]
-        public void CreditCardModelCorrect()
+        public void ProductReviewModelCorrectTest()
         {
             Assert.IsNotNull(review);
             Assert.AreEqual(3, review.productReviewID);

@@ -3,9 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:validator="clr-namespace:View.Validators"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="UpdateWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="17">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
+    
     <Grid Margin="0,0,0,53">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="29*" />
@@ -24,20 +35,69 @@
         <TextBlock Grid.Column="0" Grid.Row="0" Text="ProductReviewID: "/>
         <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding ProductReviewId}" />
         <TextBlock Grid.Column="0" Grid.Row="1" Text="ProductID: "/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ProductId}" />
+        <TextBox Name="ProductIdTB" Grid.Column="1" Grid.Row="1" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+            <TextBox.Text>
+                <Binding Path="ProductId">
+                    <Binding.ValidationRules>
+                        <validator:IntegerValidator/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="ReviewerName: "/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding ReviewerName}" />
+        <TextBox Name="ReviewerNameTB" Grid.Column="1" Grid.Row="2" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+            <TextBox.Text>
+                <Binding Path="ReviewerName">
+                    <Binding.ValidationRules>
+                        <validator:StringValidator Min="2" Max="35"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBlock Grid.Column="0" Grid.Row="3" Text="ReviewDate: "/>
         <DatePicker Grid.Column="1" Grid.Row="3" SelectedDate="{Binding ReviewDate}"/>
         <TextBlock Grid.Column="0" Grid.Row="4" Text="EmailAddress: "/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding EmailAddress}" />
+        <TextBox Name="EmailAddressTB" Grid.Column="1" Grid.Row="4" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+            <TextBox.Text>
+                <Binding Path="EmailAddress">
+                    <Binding.ValidationRules>
+                        <validator:StringValidator Min="3" Max="35"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Rating: "/>
-        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Rating}" />
+        <TextBox Name="RatingTB" Grid.Column="1" Grid.Row="5" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+            <TextBox.Text>
+                <Binding Path="Rating">
+                    <Binding.ValidationRules>
+                        <validator:IntegerValidator/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBlock Grid.Column="0" Grid.Row="6" Text="Comments: "/>
         <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Comments}" />
 
 
-        <Button Content="Save" Command="{Binding UpdateCommand}" InkCanvas.Bottom="100" Margin="178,247,299,-42" Grid.Row="6" Grid.Column="1"/>
+        <Button Content="Save" Command="{Binding UpdateCommand}" InkCanvas.Bottom="100" Margin="178,247,299,-42" Grid.Row="6" Grid.Column="1">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ProductIdTB}" Value="False"/>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ReviewerNameTB}" Value="False"/>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=EmailAddressTB}" Value="False"/>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=RatingTB}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Window>

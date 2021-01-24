@@ -6,93 +6,93 @@ namespace ViewModel
 {
     public class UpdateViewModel : ViewModelBase
     {
-        private readonly ProductReviewModel _creditCardModel;
-        private readonly ProductReviewOperations _creditCardService;
+        private readonly ProductReviewModel productReviewModel;
+        private readonly ProductReviewOperations productReviewOperations;
         //private ProductReviewModel _originalCardModel;
 
-        private ICommand _updateCommand;
-        private ICommand _deleteCommand;
+        private ICommand updateCommand;
+        private ICommand deleteCommand;
 
-        public UpdateViewModel(ProductReviewModel creditCardModel, ProductReviewOperations creditCardService)
+        public UpdateViewModel(ProductReviewModel productReviewModel, ProductReviewOperations productReviewOperations)
         {
-            _creditCardModel = creditCardModel;
+            this.productReviewModel = productReviewModel;
             //_originalCardModel = creditCardModel.Clone();
-            _creditCardService = creditCardService;
+            this.productReviewOperations = productReviewOperations;
 
         }
         public bool mode { get; set; }
-        public ICommand UpdateCommand => _updateCommand ?? (_updateCommand = new Command(Update));
-        public ICommand DeleteProductReview => _deleteCommand ?? (_deleteCommand = new Command(Delete));
+        public ICommand UpdateCommand => updateCommand ?? (updateCommand = new Command(Update));
+        public ICommand DeleteProductReview => deleteCommand ?? (deleteCommand = new Command(Delete));
 
 
         public Action CloseWindow { get; set; }
 
         public int ProductReviewId
         {
-            get => _creditCardModel.productReviewID;
+            get => productReviewModel.productReviewID;
             set
             {
-                _creditCardModel.productReviewID = value;
+                productReviewModel.productReviewID = value;
                 OnPropertyChanged("ProductReviewId");
             }
         }
 
         public int ProductId
         {
-            get => _creditCardModel.productID;
+            get => productReviewModel.productID;
             set
             {
-                _creditCardModel.productID = value;
+                productReviewModel.productID = value;
                 OnPropertyChanged("ProductId");
             }
         }
 
         public string ReviewerName
         {
-            get => _creditCardModel.reviewerName;
+            get => productReviewModel.reviewerName;
             set
             {
-                _creditCardModel.reviewerName = value;
+                productReviewModel.reviewerName = value;
                 OnPropertyChanged("ReviewerName");
             }
         }
 
         public DateTime ReviewDate
         {
-            get => _creditCardModel.reviewDate;
+            get => productReviewModel.reviewDate;
             set
             {
-                _creditCardModel.reviewDate = value;
+                productReviewModel.reviewDate = value;
                 OnPropertyChanged("ReviewDate");
             }
         }
 
         public string EmailAddress
         {
-            get => _creditCardModel.emailAddress;
+            get => productReviewModel.emailAddress;
             set
             {
-                _creditCardModel.emailAddress = value;
+                productReviewModel.emailAddress = value;
                 OnPropertyChanged("EmailAddress");
             }
         }
 
         public int Rating
         {
-            get => _creditCardModel.rating;
+            get => productReviewModel.rating;
             set
             {
-                _creditCardModel.rating = value;
+                productReviewModel.rating = value;
                 OnPropertyChanged("Rating");
             }
         }
 
         public string Comments
         {
-            get => _creditCardModel.comments;
+            get => productReviewModel.comments;
             set
             {
-                _creditCardModel.comments = value;
+                productReviewModel.comments = value;
                 OnPropertyChanged("Comments");
             }
         }
@@ -103,11 +103,11 @@ namespace ViewModel
         {
             if(mode)
             {
-                _creditCardService.AddProductReview(_creditCardModel);
-                Container.CreditCardList = Container.GetCreditCards();
+                productReviewOperations.AddProductReview(productReviewModel);
+                Container.ProductReviewList = Container.GetProductReviews();
             }
             else
-                _creditCardService.UpdateProductReview(ProductReviewId, _creditCardModel);
+                productReviewOperations.UpdateProductReview(ProductReviewId, productReviewModel);
             //_originalCardModel = _creditCardModel.Clone();
 
             CloseWindow?.Invoke();
@@ -118,14 +118,14 @@ namespace ViewModel
         {
             try
             {
-                _creditCardService.RemoveProductReview(ProductReviewId);
+                productReviewOperations.RemoveProductReview(ProductReviewId);
             }
             catch (Exception)
             {
                 
             }
 
-            Container.CreditCardList = Container.GetCreditCards();
+            Container.ProductReviewList = Container.GetProductReviews();
         }
 
     }

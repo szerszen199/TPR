@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Data;
+using System.Threading.Tasks;
 
 namespace Logic
 {
@@ -12,14 +13,12 @@ namespace Logic
 
         public void AddProductReview(IProductReview productReview)
         {
-            //if (creditCard.ExpMonth <= 0 || creditCard.ExpMonth > 12)
-            //{
-            //    throw new ArgumentOutOfRangeException(nameof(creditCard.ExpMonth));
-            //}
-
-            Data.ProductReview review = CreateDataProductReview(productReview);
-            review.ModifiedDate = DateTime.UtcNow;
-            context.AddProductReview(review);
+            Task.Run(() =>
+            {
+                Data.ProductReview review = CreateDataProductReview(productReview);
+                review.ModifiedDate = DateTime.UtcNow;
+                context.AddProductReview(review);
+            });
         }
 
         public IProductReview GetProductReviewByID(int productReviewID)
@@ -36,14 +35,20 @@ namespace Logic
 
         public void UpdateProductReview(int productReviewID, IProductReview productReview)
         {
-            Data.ProductReview review = CreateDataProductReview(productReview);
-            review.ModifiedDate = DateTime.UtcNow;
-            context.UpdateProductReview(productReviewID, review);
+            Task.Run(() =>
+            {
+                Data.ProductReview review = CreateDataProductReview(productReview);
+                review.ModifiedDate = DateTime.UtcNow;
+                context.UpdateProductReview(productReviewID, review);
+            });
         }
 
         public void RemoveProductReview(int productReviewID)
         {
-            context.RemoveProductReview(productReviewID);
+            Task.Run(() =>
+            {
+                context.RemoveProductReview(productReviewID);
+            });
         }
 
         public static Data.ProductReview CreateDataProductReview(IProductReview productReview)
