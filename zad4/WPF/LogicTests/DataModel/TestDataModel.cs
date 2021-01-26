@@ -7,7 +7,7 @@ namespace LogicTests.DataModel
 {
     public class TestDataModel : IProductReviewService
     {
-        private readonly List<IProductReview> _context = new List<IProductReview>();
+        private readonly List<IProductReview> context = new List<IProductReview>();
 
         public TestDataModel()
         {
@@ -37,23 +37,23 @@ namespace LogicTests.DataModel
 
         public void AddProductReview(IProductReview productReview)
         {
-             _context.Add(productReview);
+             context.Add(productReview);
         }
 
         public IEnumerable<IProductReview> GetAllProductReviews()
         {
-            return _context;
+            return context;
         }
 
         public IProductReview GetProductReviewByID(int productReviewID)
         {
-            return _context.Single(review => review.productReviewID.Equals(productReviewID));
+            return context.Single(review => review.productReviewID.Equals(productReviewID));
         }
 
         public void RemoveProductReview(int productReviewID)
         {
             IProductReview review = GetProductReviewByID(productReviewID);
-            _context.Remove(review);
+            context.Remove(review);
         }
 
         public void UpdateProductReview(int productReviewID, IProductReview productReview)

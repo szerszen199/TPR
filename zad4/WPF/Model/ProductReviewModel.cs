@@ -21,7 +21,7 @@ namespace Model
             this.comments = productReview.comments;
         }
 
-        public ProductReviewModel(int productReviewID, int productID, string reviewerName, DateTime reviewDate, string emailAddress, int rating, string comments, DateTime modifiedDate)
+        public ProductReviewModel(int productReviewID, int productID, string reviewerName, DateTime reviewDate, string emailAddress, int rating, string comments)
         {
             this.productReviewID = productReviewID;
             this.productID = productID;
@@ -30,7 +30,6 @@ namespace Model
             this.emailAddress = emailAddress;
             this.rating = rating;
             this.comments = comments;
-            this.modifiedDate = modifiedDate;
         }
 
         public int productReviewID { get; set; }
@@ -40,7 +39,6 @@ namespace Model
         public string emailAddress { get; set; }
         public int rating { get; set; }
         public string comments { get; set; }
-        private DateTime modifiedDate { get; set; }
 
     }
 }

@@ -51,11 +51,6 @@ namespace ViewModel
             }
         }
 
-
-        public Lazy<IOperationWindow> DetailWindow { get; set; }
-
-        public Lazy<IOperationWindow> AddWindow { get; set; }
-
         public ICommand ShowAddCommand => showAddCommand ?? (showAddCommand = new Command(ShowAddDialog));
         public ICommand ShowEditCommand => showEditCommand ?? (showEditCommand = new Command(ShowEditDialog));
 
@@ -97,9 +92,9 @@ namespace ViewModel
 
         private void ShowEditDialog()
         {
-            selectedProductReview.mode = false;
             if (SelectedProductReview != null)
             {
+                selectedProductReview.mode = false;
                 IOperationWindow dialog = WindowResolver.GetWindow();
                 dialog.BindViewModel(selectedProductReview);
                 dialog.Show();

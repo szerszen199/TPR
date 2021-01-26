@@ -16,7 +16,7 @@ namespace ViewModelTests
         public void TestInitialize()
         {
             ProductReviewOperations service = new ProductReviewOperations(new TestDataModel());
-            ProductReviewModel cardModel = new ProductReviewModel
+            ProductReviewModel reviewModel = new ProductReviewModel
             {
                 productReviewID = 3,
                 productID = 500,
@@ -26,7 +26,7 @@ namespace ViewModelTests
                 rating = 3,
                 comments = "Test Comment number 3"
             };
-            updateViewModel = new UpdateViewModel(cardModel, service);
+            updateViewModel = new UpdateViewModel(reviewModel, service);
             mainViewModel = new MainViewModel(service);
         }
 
