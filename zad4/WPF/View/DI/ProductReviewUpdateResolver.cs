@@ -1,5 +1,4 @@
-﻿
-using ViewModel;
+﻿using ViewModel;
 
 namespace View.DI
 {

@@ -32,7 +32,6 @@ namespace View
             base.OnInitialized(e);
             MainViewModel mc = (MainViewModel)DataContext;
             mc.WindowResolver = new ProductReviewUpdateResolver();
-            //mc.MainWindow = this;
         }
 
     }

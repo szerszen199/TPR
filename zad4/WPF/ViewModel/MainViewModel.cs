@@ -23,9 +23,9 @@ namespace ViewModel
 
         public MainViewModel() : this(new ProductReviewOperations()) { }
 
-        public MainViewModel(ProductReviewOperations creditCardService)
+        public MainViewModel(ProductReviewOperations productReviewService)
         {
-            productReviewOperations = creditCardService;
+            productReviewOperations = productReviewService;
             ProductReviewList = GetProductReviews();
         }
 

@@ -1,8 +1,5 @@
 ﻿using System;
 using Logic;
-using System.Collections.Generic;
-using System.Text;
-using Data;
 
 namespace Model
 {

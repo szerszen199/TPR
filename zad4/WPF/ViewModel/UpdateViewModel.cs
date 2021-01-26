@@ -8,7 +8,6 @@ namespace ViewModel
     {
         private readonly ProductReviewModel productReviewModel;
         private readonly ProductReviewOperations productReviewOperations;
-        //private ProductReviewModel _originalCardModel;
 
         private ICommand updateCommand;
         private ICommand deleteCommand;
@@ -16,7 +15,6 @@ namespace ViewModel
         public UpdateViewModel(ProductReviewModel productReviewModel, ProductReviewOperations productReviewOperations)
         {
             this.productReviewModel = productReviewModel;
-            //_originalCardModel = creditCardModel.Clone();
             this.productReviewOperations = productReviewOperations;
 
         }
@@ -108,7 +106,6 @@ namespace ViewModel
             }
             else
                 productReviewOperations.UpdateProductReview(ProductReviewId, productReviewModel);
-            //_originalCardModel = _creditCardModel.Clone();
 
             CloseWindow?.Invoke();
         }
